@@ -1,0 +1,805 @@
+/* hotspot shortcode */
+
+.hongo-hotspot-wrapper {
+	position: relative;
+	text-align: center;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-left .hongo_addons_hotspot>div {
+	top: 50%;
+	left: auto;
+	right: 100%;
+	margin: 0 10px 0 0;
+	-webkit-transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-left .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(0, -50%) scale(.85);
+	-moz-transform: translate(0, -50%) scale(.85);
+	-o-transform: translate(0, -50%) scale(.85);
+	transform: translate(0, -50%) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-left .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(0, -50%) scale(1);
+	-moz-transform: translate(0, -50%) scale(1);
+	-o-transform: translate(0, -50%) scale(1);
+	transform: translate(0, -50%) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-left .hongo_addons_hotspot>div.hongo-hotspot-left {
+	left: 100%;
+	right: auto;
+	margin: 0 0 0 10px;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-right .hongo_addons_hotspot>div {
+	top: 50%;
+	left: 100%;
+	margin: 0 0 0 10px;
+	-webkit-transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-right .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(0, -50%) scale(.85);
+	-moz-transform: translate(0, -50%) scale(.85);
+	-o-transform: translate(0, -50%) scale(.85);
+	transform: translate(0, -50%) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-right .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(0, -50%) scale(1);
+	-moz-transform: translate(0, -50%) scale(1);
+	-o-transform: translate(0, -50%) scale(1);
+	transform: translate(0, -50%) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-right .hongo_addons_hotspot>div.hongo-hotspot-right {
+	left: auto;
+	right: 100%;
+	margin: 0 10px 0 0;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div {
+	top: auto;
+	bottom: 100%;
+	left: 50%;
+	margin: 0 0 10px 0;
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div.hongo-hotspot-left {
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div.hongo-hotspot-right {
+	-webkit-transform: translate(-100%, 0);
+	-moz-transform: translate(-100%, 0);
+	-o-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(-50%, 0) scale(.85);
+	-moz-transform: translate(-50%, 0) scale(.85);
+	-o-transform: translate(-50%, 0) scale(.85);
+	transform: translate(-50%, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div.hidden.hongo-hotspot-left {
+	-webkit-transform: translate(0, 0) scale(.85);
+	-moz-transform: translate(0, 0) scale(.85);
+	-o-transform: translate(0, 0) scale(.85);
+	transform: translate(0, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div.hidden.hongo-hotspot-right {
+	-webkit-transform: translate(-100%, 0) scale(.85);
+	-moz-transform: translate(-100%, 0) scale(.85);
+	-o-transform: translate(-100%, 0) scale(.85);
+	transform: translate(-100%, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(-50%, 0) scale(1);
+	-moz-transform: translate(-50%, 0) scale(1);
+	-o-transform: translate(-50%, 0) scale(1);
+	transform: translate(-50%, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div:not(.hidden).hongo-hotspot-left {
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform: translate(0, 0) scale(1);
+	-o-transform: translate(0, 0) scale(1);
+	transform: translate(0, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top .hongo_addons_hotspot>div:not(.hidden).hongo-hotspot-right {
+	-webkit-transform: translate(-100%, 0) scale(1);
+	-moz-transform: translate(-100%, 0) scale(1);
+	-o-transform: translate(-100%, 0) scale(1);
+	transform: translate(-100%, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div {
+	top: 100%;
+	left: 50%;
+	margin: 10px 0 0 0;
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div.hongo-hotspot-left {
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div.hongo-hotspot-right {
+	-webkit-transform: translate(-100%, 0);
+	-moz-transform: translate(-100%, 0);
+	-o-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(-50%, 0) scale(.85);
+	-moz-transform: translate(-50%, 0) scale(.85);
+	-o-transform: translate(-50%, 0) scale(.85);
+	transform: translate(-50%, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div.hidden.hongo-hotspot-left {
+	-webkit-transform: translate(0, 0) scale(.85);
+	-moz-transform: translate(0, 0) scale(.85);
+	-o-transform: translate(0, 0) scale(.85);
+	transform: translate(0, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div.hidden.hongo-hotspot-right {
+	-webkit-transform: translate(-100%, 0) scale(.85);
+	-moz-transform: translate(-100%, 0) scale(.85);
+	-o-transform: translate(-100%, 0) scale(.85);
+	transform: translate(-100%, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(-50%, 0) scale(1);
+	-moz-transform: translate(-50%, 0) scale(1);
+	-o-transform: translate(-50%, 0) scale(1);
+	transform: translate(-50%, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div:not(.hidden).hongo-hotspot-left {
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform: translate(0, 0) scale(1);
+	-o-transform: translate(0, 0) scale(1);
+	transform: translate(0, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom .hongo_addons_hotspot>div:not(.hidden).hongo-hotspot-right {
+	-webkit-transform: translate(-100%, 0) scale(1);
+	-moz-transform: translate(-100%, 0) scale(1);
+	-o-transform: translate(-100%, 0) scale(1);
+	transform: translate(-100%, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-left .hongo_addons_hotspot>div {
+	top: auto;
+	bottom: 100%;
+	left: auto;
+	right: 100%;
+	margin: 0 10px 10px 0;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-left .hongo_addons_hotspot>div.hongo-hotspot-left {
+	left: 100%;
+	right: auto;
+	margin: 0 0 10px 10px;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-left .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(0, 0) scale(.85);
+	-moz-transform: translate(0, 0) scale(.85);
+	-o-transform: translate(0, 0) scale(.85);
+	transform: translate(0, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-left .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform: translate(0, 0) scale(1);
+	-o-transform: translate(0, 0) scale(1);
+	transform: translate(0, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-right .hongo_addons_hotspot>div {
+	top: auto;
+	bottom: 100%;
+	left: 100%;
+	margin: 0 0 10px 10px;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-right .hongo_addons_hotspot>div.hongo-hotspot-right {
+	left: auto;
+	right: 100%;
+	margin: 0 10px 10px 0;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-right .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(0, 0) scale(.85);
+	-moz-transform: translate(0, 0) scale(.85);
+	-o-transform: translate(0, 0) scale(.85);
+	transform: translate(0, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-top-right .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform: translate(0, 0) scale(1);
+	-o-transform: translate(0, 0) scale(1);
+	transform: translate(0, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-left .hongo_addons_hotspot>div {
+	top: 100%;
+	left: auto;
+	right: 100%;
+	margin: 10px 10px 0 0;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-left .hongo_addons_hotspot>div.hongo-hotspot-left {
+	left: 100%;
+	right: auto;
+	margin: 10px 0 0 10px;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-left .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(0, 0) scale(.85);
+	-moz-transform: translate(0, 0) scale(.85);
+	-o-transform: translate(0, 0) scale(.85);
+	transform: translate(0, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-left .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform: translate(0, 0) scale(1);
+	-o-transform: translate(0, 0) scale(1);
+	transform: translate(0, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-right .hongo_addons_hotspot>div {
+	top: 100%;
+	left: 100%;
+	margin: 10px 0 0 10px;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-right .hongo_addons_hotspot>div.hongo-hotspot-right {
+	left: auto;
+	right: 100%;
+	margin: 10px 10px 0 0;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-right .hongo_addons_hotspot>div.hidden {
+	-webkit-transform: translate(0, 0) scale(.85);
+	-moz-transform: translate(0, 0) scale(.85);
+	-o-transform: translate(0, 0) scale(.85);
+	transform: translate(0, 0) scale(.85);
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-position-bottom-right .hongo_addons_hotspot>div:not(.hidden) {
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform: translate(0, 0) scale(1);
+	-o-transform: translate(0, 0) scale(1);
+	transform: translate(0, 0) scale(1);
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot>div {
+	position: absolute;
+	padding: 20px 20px 35px;
+	background: #fff;
+	z-index: 301;
+	width: 250px;
+	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+	box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+	visibility: visible;
+	opacity: 1;
+	filter: alpha(opacity=1);
+	-webkit-transform: translateY(0) translateZ(0);
+	transform: translateY(0) translateZ(0);
+	-webkit-transition: opacity .25s ease, visibility .25s ease, -webkit-transform .25s ease;
+	transition: opacity .25s ease, visibility .25s ease, -webkit-transform .25s ease;
+	transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+	transition: opacity .25s ease, visibility .25s ease, transform .25s ease, -webkit-transform .25s ease;
+	display: block !important;
+	cursor: default;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-text-align-left .hongo_addons_hotspot>div {
+	text-align: left !important;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-text-align-center .hongo_addons_hotspot>div {
+	text-align: center !important;
+}
+
+.hongo-hotspot-wrapper .hongo-tooltip-text-align-right .hongo_addons_hotspot>div {
+	text-align: right !important;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot>div.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot.active>div.hidden {
+	opacity: 1;
+	visibility: visible;
+}
+
+.hongo_addons_hotspot.hongo-hotspot-wrapper:not(.hidden)>div {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot>div>.close-item {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	display: none;
+	line-height: 20px;
+	text-align: center;
+	background: #000;
+	z-index: 1;
+	color: #fff;
+	font-size: 10px;
+}
+
+.hongo-hotspot-wrapper .hongo-action-click .hongo_addons_hotspot>div>.close-item {
+	visibility: visible;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot>div>.Hotspot_Product+.Hotspot_Message {
+	margin-top: 5px;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot>div>.Hotspot_Message {
+	font-size: 14px;
+	line-height: 25px;
+	white-space: pre-line;
+	color: #595959;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot.hongoHotspotImageMarker {
+	position: absolute;
+	cursor: pointer;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker) {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	margin-top: -12px;
+	margin-left: -12px;
+	cursor: pointer;
+	background: transparent;
+	border-radius: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-transition: z-index .3s ease .3s;
+	-moz-transition: z-index .3s ease .3s;
+	transition: z-index .3s ease .3s;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker):before {
+	z-index: 1;
+	font-family: 'themify';
+	font-size: 12px;
+	width: 28px;
+	line-height: 28px;
+	height: 28px;
+	content: "\e61a";
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #f57250;
+	border-radius: 50%;
+	font-weight: 900;
+	color: #fff;
+	transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot.active>div {
+	-webkit-transform: translateY(-15px) translateZ(0);
+	transform: translateY(-15px) translateZ(0);
+}
+
+.hongo-hotspot-wrapper .hongo-hotspot-image-cover {
+	position: relative;
+	display: inline-block;
+}
+
+.hongo-hotspot-wrapper .hongo-hotspot-image-cover * {
+	text-align: inherit;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-image {
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-title {
+	font-size: 13px;
+	line-height: 25px;
+	font-weight: 500;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-title a {
+	color: #232323;
+	text-decoration: none;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-title a:hover,
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-title a:active {
+	color: #f57250;
+	text-decoration: none;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-price {
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 500;
+	color: #6f6f6f;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-description {
+	margin-top: 10px;
+	padding: 0 20px;
+	margin-bottom: 0;
+	line-height: 22px
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-rating {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	padding: 8px 12px;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .star-rating:before,
+.hongo-hotspot-wrapper .hongo_addons_hotspot .star-rating span,
+.woocommerce p.stars.selected a:not(.active):before,
+.woocommerce p.stars a:before {
+	color: #fd9d38;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-btn .btn {
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 20px;
+	margin-top: 24px;
+	text-decoration: none;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-btn .btn:after {
+	display: none
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-btn .button.added_to_cart,
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-btn .button i {
+	display: none
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .star-rating span {
+	overflow: hidden;
+	float: left;
+	top: 0;
+	left: 0;
+	position: absolute;
+	padding-top: 1.5em;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .star-rating:before,
+.hongo-hotspot-wrapper .hongo_addons_hotspot .star-rating span:before {
+	letter-spacing: 2px;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .star-rating span:before {
+	content: '\53\53\53\53\53';
+	top: 0;
+	position: absolute;
+	left: 0;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-rating .star-rating {
+	float: none;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	height: 1em;
+	line-height: 1;
+	width: 6.1em;
+	font-family: star;
+	font-size: 10px;
+	margin: 0 auto;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot .product-rating .star-rating:before {
+	content: '\73\73\73\73\73';
+	color: #d3ced2;
+	float: left;
+	top: 0;
+	left: 0;
+	position: absolute;
+	color: #fd9d38;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot>div:before {
+	content: "";
+	position: absolute;
+	display: block;
+}
+
+.hongo-hotspot-left:before,
+.hongo-hotspot-right:before {
+	width: 20px;
+	height: 100%;
+	top: 0;
+}
+
+.hongo-hotspot-left:before {
+	left: 100%;
+}
+
+.hongo-hotspot-right:before {
+	right: 100%;
+}
+
+.hongo-hotspot-left,
+.hongo-hotspot-right {
+	top: -55px;
+}
+
+.hongo-hotspot-right {
+	left: 50px;
+}
+
+.hongo-hotspot-left {
+	right: 50px;
+}
+
+.hongo-hotspot-bottom:before,
+.hongo-hotspot-top:before {
+	width: 100%;
+	height: 20px;
+	left: 0;
+}
+
+.hongo-hotspot-bottom:before {
+	bottom: 100%;
+}
+
+.hongo-hotspot-top:before {
+	top: 100%;
+}
+
+.hongo-hotspot-bottom,
+.hongo-hotspot-top {
+	left: -115px;
+}
+
+.hongo-hotspot-bottom {
+	top: 65px;
+}
+
+.hongo-hotspot-top {
+	bottom: 35px;
+}
+
+.hongo-hotspot-wrapper .hongo-action-hover .hongo_addons_hotspot.active:hover:before,
+.hongo-hotspot-wrapper .hongo_addons_hotspot.active:before {
+	transform: rotate3d(0, 0, 1, 45deg);
+	-webkit-transform: rotate3d(0, 0, 1, 45deg);
+	-moz-transform: rotate3d(0, 0, 1, 45deg);
+	-ms-transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.hongo-action-hover .hongo_addons_hotspot>div .close-item {
+	display: none;
+}
+
+.hongo-hotspot-right.hongo-overlay-left {
+	right: 50px;
+	left: auto;
+}
+
+.hongo-hotspot-left.hongo-overlay-right {
+	right: auto;
+	left: 50px;
+}
+
+.hongo-hotspot-bottom.hongo-overlay-left {
+	right: 0;
+	left: auto;
+}
+
+.hongo-hotspot-bottom.hongo-overlay-right {
+	right: auto;
+	left: 0;
+}
+
+.hongo-hotspot-top.hongo-overlay-left {
+	right: 0;
+	left: auto;
+}
+
+.hongo-hotspot-top.hongo-overlay-right {
+	right: auto;
+	left: 0;
+}
+
+.hongo-hotspot-wrapper .hongo_addons_hotspot:after {
+	content: '';
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	bottom: -8px;
+	left: -8px;
+	display: block;
+	-webkit-animation: hotspot-icon 2s ease infinite;
+	animation: hotspot-icon 2s ease infinite;
+	border-radius: 50%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+	background-color: #f57250;
+	opacity: 0.5
+}
+
+@keyframes hotspot-icon {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.2);
+		transform: scale(.2);
+	}
+	50% {
+		opacity: .8;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@-webkit-keyframes hotspot-icon {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.2);
+		transform: scale(.2);
+	}
+	50% {
+		opacity: .8;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@media (max-width: 991px) {
+	.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker),
+	.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker):before {
+		width: 24px;
+		height: 24px;
+	}
+	.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker):before {
+		line-height: 24px;
+	}
+}
+
+@media (max-width: 767px) {
+	.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker),
+	.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker):before {
+		width: 22px;
+		height: 22px;
+	}
+	.hongo-hotspot-wrapper .hongo_addons_hotspot:not(.hongoHotspotImageMarker):before {
+		line-height: 22px;
+	}
+	.hongo-hotspot-wrapper .hongo_addons_hotspot>div {
+		padding: 10px;
+		width: 225px;
+	}
+	.hongo-hotspot-left,
+	.hongo-hotspot-right,
+	.hongo-hotspot-top,
+	.hongo-hotspot-bottom {
+		right: initial !important;
+		left: 50%;
+		transform: translateY(15px) translateZ(0) translateX(-50%) !important;
+		margin: 0 !important;
+		top: 65px !important;
+		bottom: inherit !important;
+	}
+	.active .hongo-hotspot-left,
+	.active .hongo-hotspot-right,
+	.active .hongo-hotspot-top,
+	.active .hongo-hotspot-bottom {
+		transform: translateY(0) translateZ(0) translateX(-50%) !important;
+	}
+	.hongo_addons_hotspot.active .hongo-hotspot-left,
+	.hongo_addons_hotspot.active .hongo-hotspot-right,
+	.hongo_addons_hotspot.active .hongo-hotspot-top,
+	.hongo_addons_hotspot.active .hongo-hotspot-bottom {
+		top: 30px !important;
+	}
+	.hongo-hotspot-wrapper .hongo_addons_hotspot>div>.close-item {
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		padding-left: 1px;
+		font-size: 8px;
+	}
+	.hongo-hotspot-wrapper .hongo_addons_hotspot .product-description {
+		margin-top: 12px;
+		padding: 0 10px;
+	}
+	.hongo-hotspot-wrapper .hongo_addons_hotspot .product-btn .btn {
+		margin-top: 20px;
+		margin-bottom: 5px;
+	}
+	.hongo-overlay-right {
+		right: 10px !important
+	}
+	.hongo-overlay-left {
+		left: 10px !important
+	}
+}
