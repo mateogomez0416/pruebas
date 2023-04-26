@@ -1,0 +1,374 @@
+(function() {
+  var __sections__ = {};
+  (function() {
+    for(var i = 0, s = document.getElementById('sections-script').getAttribute('data-sections').split(','); i < s.length; i++)
+      __sections__[s[i]] = true;
+  })();
+  (function() {
+  if (!__sections__["dynamic-promotions"] && !window.DesignMode) return;
+  try {
+    
+import debounce from 'just-debounce';
+
+import EventHandler from '@pixelunion/events';
+
+export default class DynamicPromotions {
+  constructor(section) {
+    this.el = section.el;
+
+    this.blocks = this.el.querySelectorAll('[data-promotion-block]');
+
+    this.events = new EventHandler();
+
+    this.blocks.forEach(block => {
+      this.checkBlockOverflow(block);
+
+      this.events.register(block, 'rimg:load', () => this.checkBlockOverflow(block));
+    });
+
+    this.events.register(window, 'resize', debounce(() => {
+      this.blocks.forEach(block => {
+        this.checkBlockOverflow(block);
+      });
+    }, 100, true, true));
+  }
+
+  checkBlockOverflow(block) {
+    const content = block.querySelector('[data-promotion-content]');
+    const image = block.querySelector('[data-promotion-image] img');
+
+    block.classList.remove('promotion-block--content-overflow');
+
+    if (!image) {
+      return;
+    }
+
+    const contentHeight = content.getBoundingClientRect().height;
+    const imageHeight = image.getBoundingClientRect().height;
+
+    if (contentHeight > imageHeight) {
+      block.style.setProperty('--promotion-block-height', `${contentHeight}px`);
+      block.classList.add('promotion-block--content-overflow');
+    }
+  }
+
+  onSectionUnload() {
+    this.events.unregisterAll();
+  }
+}
+
+
+  } catch(e) { console.error(e); }
+})();
+
+(function() {
+  if (!__sections__["dynamic-slideshow"] && !window.DesignMode) return;
+  try {
+    
+import Flickity from 'flickity';
+import EventHandler from '@pixelunion/events';
+
+export default class DynamicSlideshow {
+  constructor(section) {
+    this.el = section.el;
+    this.settings = section.data;
+
+    this.paginationClicked = false;
+
+    this.events = new EventHandler();
+
+    this.carousel = this.el.querySelector('[data-slideshow-wrapper]');
+    this.slides = this.el.querySelectorAll('[data-slideshow-slide]');
+    this.pagination = this.el.querySelector('[data-slideshow-pagination]');
+    this.paginationButtons = this.pagination ? this.pagination.querySelectorAll('[data-slide-button]') : null;
+    this.counter = this.el.querySelector('[data-slide-counter]');
+    this.autoplay = this.settings.enable_autoplay;
+
+    if (this.carousel && this.slides.length > 1) {
+      this.flickity = new Flickity(this.carousel, {
+        accessibility: false, // Flickity's inherent "accessibility" actually makes it worse
+        adaptiveHeight: true,
+        autoPlay: this.settings.enable_autoplay
+          && !this.viewportIsMobile()
+          ? this.settings.autoplay_interval * 1000 : false,
+        cellAlign: 'left',
+        cellSelector: '[data-slideshow-slide]',
+        contain: true,
+        pageDots: false,
+        pauseAutoPlayOnHover: true,
+        selectedAttraction: this.settings.slide_attraction ? parseFloat(this.settings.slide_attraction) : 0.03,
+        friction: this.settings.slide_friction ? parseFloat(this.settings.slide_friction) : 0.3,
+        wrapAround: true,
+        arrowShape: {
+          x0: 10,
+          x1: 60,
+          y1: 50,
+          x2: 65,
+          y2: 45,
+          x3: 20,
+        },
+      });
+
+      this.prevNextButtons = this.el.querySelectorAll('.flickity-prev-next-button');
+      if (this.prevNextButtons.length === 2) {
+        this.prevNextButtons[0].setAttribute('aria-label', this.settings.previous_text);
+        this.prevNextButtons[1].setAttribute('aria-label', this.settings.next_text);
+      }
+
+      this.el.style.setProperty('--slide-text-color', `${this.slides[0].dataset.textColor}`);
+      this._updateTabindex();
+      this._positionNavigation();
+      this._updateCounter(1);
+
+      this.flickity.on('change', index => {
+        this.carousel.style.setProperty('--slide-text-color', `${this.slides[index].dataset.textColor}`);
+        this._updatePagination();
+        this._positionNavigation();
+        this._updateTabindex();
+        this._updateCounter(index + 1);
+      });
+
+      // On any interaction on the slideshow, we want it to pause
+      this.flickity.on('pointerDown', () => this.flickity.pausePlayer());
+
+      this.events.register(this.carousel, 'rimg:load', () => {
+        this.flickity.resize();
+        this._positionNavigation();
+      });
+
+      // As soon as the slideshow receives keyboard or mouse focus, we want it to pause
+      this.events.register(this.carousel, 'focusin', () => this.flickity.pausePlayer());
+
+      this.events.register(window, 'resize', () => {
+        this._positionNavigation();
+        if (this.viewportIsMobile()) {
+          this.flickity.pausePlayer();
+        }
+      });
+
+      // We want to focus on the new slide if the pagination buttons were clicked
+      // If we don't wait until "settle" then the slideshow experiences a weird jump issue
+      this.flickity.on('settle', index => {
+        if (this.paginationClicked) {
+          this.slides[index].focus();
+          this.paginationClicked = false;
+        }
+      });
+
+      // We had to add in our own pagination buttons since the flickity ones
+      // are not elements that can be tabbed to. This replicates their behaviour.
+      if (this.pagination) {
+        for (let i = 0; i < this.paginationButtons.length; i++) {
+          this.events.register(this.paginationButtons[i], 'click', () => {
+            const index = parseInt(this.paginationButtons[i].dataset.slideButton, 10);
+            this.flickity.pausePlayer();
+            this.flickity.select(index, true, false);
+            this.paginationClicked = true;
+          });
+        }
+      }
+    }
+  }
+
+  _updatePagination() {
+    if (this.pagination) {
+      for (let i = 0; i < this.paginationButtons.length; i++) {
+        this.paginationButtons[i].dataset.selected = 'false';
+        this.paginationButtons[i].setAttribute('aria-selected', 'false');
+      }
+      this.paginationButtons[this.flickity.selectedIndex].dataset.selected = 'true';
+      this.paginationButtons[this.flickity.selectedIndex].setAttribute('aria-selected', 'true');
+    }
+  }
+
+  _positionNavigation() {
+    if (this.settings.mobile_navigation_adjust) {
+      const arrowButtons = this.el.querySelectorAll('.flickity-prev-next-button');
+      const currentSlideheight = this.flickity.selectedElement
+        .querySelector('[data-slide-image-wrapper]').offsetHeight;
+
+      if (arrowButtons) {
+        let top = '50%';
+
+        if (this.viewportIsMobile()) {
+          top = `${currentSlideheight / 2}px`;
+        }
+
+        arrowButtons[0].style.top = top;
+        arrowButtons[1].style.top = top;
+      }
+
+      if (this.pagination) {
+        let top = 'auto';
+
+        if (this.viewportIsMobile()) {
+          const content = this.flickity.selectedElement.querySelector('[data-slide-content]');
+
+          if (content) {
+            top = `${currentSlideheight}px`;
+          } else {
+            const paginationHeight = this.pagination.offsetHeight;
+
+            // If no content, and mobile, offset by height of dots, and the bottom gutter
+            top = `${currentSlideheight - paginationHeight}px`;
+          }
+        }
+
+        this.pagination.style.top = top;
+      }
+    }
+  }
+
+  _updateTabindex() {
+    // We need to remove tabindex from the slides that are not currently
+    // selected, so that slides not currently shown cannot receive keyboard focus.
+    for (let i = 0; i < this.slides.length; i++) {
+      const links = this.slides[i].querySelectorAll('a');
+      for (let j = 0; j < links.length; j++) {
+        links[j].setAttribute('tabindex', i === this.flickity.selectedIndex ? '0' : '-1');
+      }
+    }
+  }
+
+  // This updates the counter which is used for accessibility. This gets read out to a user
+  // who uses a screen reader every time the slide changes.
+  _updateCounter(index) {
+    const counterText = this.counter.dataset.counterTemplate
+      .replace('{{ count }}', index)
+      .replace('{{ total }}', this.slides.length);
+    this.counter.innerHTML = counterText;
+  }
+
+  // This method can be overridden by the theme if the breakpoint is different than 720.
+  viewportIsMobile() {
+    return window.innerWidth < 768;
+  }
+
+  onSectionBlockSelect(block) {
+    if (!this.flickity) {
+      return;
+    }
+
+    const slideIndex = block.el.dataset.slideshowSlideIndex;
+
+    this.flickity.select(slideIndex, false, false);
+
+    if (this.autoplay) {
+      this.flickity.stopPlayer();
+    }
+  }
+
+  onSectionBlockDeselect() {
+    if (this.flickity && this.autoplay) {
+      this.flickity.playPlayer();
+    }
+  }
+
+  onSectionUnload() {
+    if (this.flickity) {
+      this.flickity.destroy();
+    }
+    this.events.unregisterAll();
+  }
+}
+
+
+  } catch(e) { console.error(e); }
+})();
+
+(function() {
+  if (!__sections__["static-header"]) return;
+  try {
+    
+import EventHandler from '@pixelunion/events';
+
+import NavDesktopMenu from '../../snippets/navigation-desktop/NavDesktopMenu';
+import NavMobile from '../../snippets/navigation-mobile/NavMobile';
+
+export default class StaticHeader {
+  constructor(section) {
+    this.el = section.el;
+    this.data = section.data;
+    this.events = new EventHandler();
+
+    this.announcementBar = document.querySelector('.pxs-announcement-bar');
+    this.headerControls = document.querySelector('[data-header-controls]');
+    this.searchInput = this.headerControls.querySelector('[data-search-input]');
+
+    this.header = this.el.querySelector('[data-site-header]');
+    this.logo = this.el.querySelector('[data-header-logo]');
+    this.navigation = this.el.querySelector('[data-navigation-desktop]');
+    this.mobileNav = this.el.querySelector('[data-mobile-nav]');
+
+    // We need to move the mobile nav in the dom to be outside of the header to allow for
+    // appropriate z-index between the header controls, header, and mobile nav.
+    this.mobileNav = document.body.insertBefore(this.mobileNav, this.el.nextSibling);
+
+    this.navDesktopMenu = new NavDesktopMenu(this.navigation);
+    this.navMobile = new NavMobile({
+      controls: this.headerControls,
+      mobileNav: this.mobileNav,
+    });
+
+    this.sticky = this.header.classList.contains('site-header--sticky');
+
+    document.body.style.setProperty('--scroll-away-opacity', 1);
+
+    // This is the logo height plus the announcement bar height to have the
+    // scroll away opacity effect work better with images taller than 100px.
+    // We also need to adjust the fade slightly because the logo does not
+    // scroll completely away (10px).
+    const barHeight = this.announcementBar ? this.announcementBar.getBoundingClientRect().height : 0;
+    const fadeHeight = Math.max(this.logo.getBoundingClientRect().height + barHeight - 10, 100);
+
+    this.events.register(window, 'scroll', () => {
+      const opacity = Math.max(1 - (window.scrollY / fadeHeight), 0);
+      document.body.style.setProperty('--scroll-away-opacity', opacity);
+
+      if (this.sticky) {
+        const searchBottom = this.searchInput.getBoundingClientRect().bottom;
+        const navTop = this.navigation.getBoundingClientRect().top;
+
+        if (searchBottom > navTop) {
+          this.headerControls.classList.add('header-controls--search-overlap');
+          this.header.classList.add('site-header--search-overlap');
+        } else {
+          this.headerControls.classList.remove('header-controls--search-overlap');
+          this.header.classList.remove('site-header--search-overlap');
+        }
+      }
+    });
+
+    this.events.register(this.searchInput, 'focusin', () => {
+      this.headerControls.classList.add('header-controls--search-active');
+      this.header.classList.add('site-header--search-active');
+    });
+
+    this.events.register(this.searchInput, 'focusout', () => {
+      this.headerControls.classList.remove('header-controls--search-active');
+      this.headerControls.classList.remove('header-controls--search-overlap');
+      this.header.classList.remove('site-header--search-active');
+      this.header.classList.remove('site-header--search-overlap');
+    });
+  }
+
+  onSectionBlockSelect(block) {
+    this.navDesktopMenu.selectBlock(block.id);
+  }
+
+  onSectionBlockDeselect() {
+    this.navDesktopMenu.closeAllMenus();
+  }
+
+  onSectionUnload() {
+    this.navDesktopMenu.unload();
+    this.navMobile.unload();
+    this.events.unregisterAll();
+  }
+}
+
+
+  } catch(e) { console.error(e); }
+})();
+
+})();
