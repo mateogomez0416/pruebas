@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html style="position: relative;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="/">--><base href=".">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Wix Comments</title>
+		<meta name="description" content="Wix Comments Application">
+		<meta name="viewport" content="width=device-width">
+
+		<script type="text/javascript">
+			(function() {
+				var compId = /[&?]compId=([^&]+)/.exec(window.location.search);
+				try {
+					parent.postMessage(JSON.stringify({
+						intent: 'TPA2',
+						callId: 1,
+						type: 'appIsAlive',
+						compId: compId ? compId[1] : '',
+						deviceType: 'desktop',
+						data: {version: '1.425.0'}
+					}), '*');
+				} catch (e) {
+					console.error(e);
+				}
+			})();
+			Function.prototype.bind||(Function.prototype.bind=function(a){if("function"!=typeof this)throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");var b=Array.prototype.slice.call(arguments,1),c=this,d=function(){},e=function(){return c.apply(this instanceof d?this:a,b.concat(Array.prototype.slice.call(arguments)))};return this.prototype&&(d.prototype=this.prototype),e.prototype=new d,e});
+		</script>
+
+		<link rel="stylesheet" href="./font-awesome.min.css">
+	<style>html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{background-color:transparent;margin:0;line-height:1.42857143}*{box-sizing:border-box}</style><link rel="stylesheet" href="./styles.86ccb9cf38eaecaf.css" media="all" onload="this.media=&#39;all&#39;"><noscript><link rel="stylesheet" href="styles.86ccb9cf38eaecaf.css"></noscript><script>//! moment.js locale configuration
+//! locale : Spanish [es]
+//! author : Julio Napurí : https://github.com/julionc
+
+;(function (global, factory) {
+   typeof exports === 'object' && typeof module !== 'undefined'
+       && typeof require === 'function' ? factory(require('../moment')) :
+   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+   factory(global.moment)
+}(this, (function (moment) { 'use strict';
+
+    //! moment.js locale configuration
+
+    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
+            '_'
+        ),
+        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),
+        monthsParse = [
+            /^ene/i,
+            /^feb/i,
+            /^mar/i,
+            /^abr/i,
+            /^may/i,
+            /^jun/i,
+            /^jul/i,
+            /^ago/i,
+            /^sep/i,
+            /^oct/i,
+            /^nov/i,
+            /^dic/i,
+        ],
+        monthsRegex = /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i;
+
+    var es = moment.defineLocale('es', {
+        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(
+            '_'
+        ),
+        monthsShort: function (m, format) {
+            if (!m) {
+                return monthsShortDot;
+            } else if (/-MMM-/.test(format)) {
+                return monthsShort[m.month()];
+            } else {
+                return monthsShortDot[m.month()];
+            }
+        },
+        monthsRegex: monthsRegex,
+        monthsShortRegex: monthsRegex,
+        monthsStrictRegex: /^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,
+        monthsShortStrictRegex: /^(ene\.?|feb\.?|mar\.?|abr\.?|may\.?|jun\.?|jul\.?|ago\.?|sep\.?|oct\.?|nov\.?|dic\.?)/i,
+        monthsParse: monthsParse,
+        longMonthsParse: monthsParse,
+        shortMonthsParse: monthsParse,
+        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
+        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
+        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),
+        weekdaysParseExact: true,
+        longDateFormat: {
+            LT: 'H:mm',
+            LTS: 'H:mm:ss',
+            L: 'DD/MM/YYYY',
+            LL: 'D [de] MMMM [de] YYYY',
+            LLL: 'D [de] MMMM [de] YYYY H:mm',
+            LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',
+        },
+        calendar: {
+            sameDay: function () {
+                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            nextDay: function () {
+                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            nextWeek: function () {
+                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            lastDay: function () {
+                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+            },
+            lastWeek: function () {
+                return (
+                    '[el] dddd [pasado a la' +
+                    (this.hours() !== 1 ? 's' : '') +
+                    '] LT'
+                );
+            },
+            sameElse: 'L',
+        },
+        relativeTime: {
+            future: 'en %s',
+            past: 'hace %s',
+            s: 'unos segundos',
+            ss: '%d segundos',
+            m: 'un minuto',
+            mm: '%d minutos',
+            h: 'una hora',
+            hh: '%d horas',
+            d: 'un día',
+            dd: '%d días',
+            M: 'un mes',
+            MM: '%d meses',
+            y: 'un año',
+            yy: '%d años',
+        },
+        dayOfMonthOrdinalParse: /\d{1,2}º/,
+        ordinal: '%dº',
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4, // The week that contains Jan 4th is the first week of the year.
+        },
+        invalidDate: 'Fecha invalida',
+    });
+
+    return es;
+
+})));
+</script><style>@charset "UTF-8";[_nghost-jja-c29]{display:block;padding-top:16px}[layout-flex][_ngcontent-jja-c29]{flex:1}.comments-app.mobile[_ngcontent-jja-c29]   h3[_ngcontent-jja-c29]{font-size:16px;line-height:inherit;font-weight:700}.comments-app[_ngcontent-jja-c29]   .upgrade-notice[_ngcontent-jja-c29]{margin-bottom:20px}.comments-app[_ngcontent-jja-c29]   .upgrade-notice[_ngcontent-jja-c29]:first-child{margin-top:16px}.comments-app[_ngcontent-jja-c29]   span.load-spinner[_ngcontent-jja-c29]{display:inline-block;position:relative;left:12px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]{clear:both;list-style-type:none;margin:0;padding:0;overflow:auto;max-height:9800px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]{margin-bottom:18px;list-style-type:none;display:flex}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .spacer[_ngcontent-jja-c29]{width:8px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .content[_ngcontent-jja-c29]{min-height:2em;word-break:break-word}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .author[_ngcontent-jja-c29]{opacity:.8}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .author-heading[_ngcontent-jja-c29]{font-weight:bold;opacity:1;display:block}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .author-heading[_ngcontent-jja-c29] + .content[_ngcontent-jja-c29]{min-height:0}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   star-rating[_ngcontent-jja-c29]{display:block}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .website-link[_ngcontent-jja-c29]{word-break:break-all}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .website-link[_ngcontent-jja-c29]:before{content:"\b7";padding:0 .2em;opacity:.8}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .timestamp[_ngcontent-jja-c29]{opacity:.8}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .timestamp[_ngcontent-jja-c29]:not(:first-child):before{content:"\b7";padding:0 .4em 0 .2em}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .action-link[_ngcontent-jja-c29]:before{content:"\b7";padding:0 .25em 0 0}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .action-link[_ngcontent-jja-c29]   a[_ngcontent-jja-c29]{cursor:pointer}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29] > .reply-box[_ngcontent-jja-c29]{margin-top:16px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .reply-list[_ngcontent-jja-c29]{padding:0}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .reply-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]{min-height:40px;margin:12px 0 0}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .reply-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]   .content[_ngcontent-jja-c29]{min-height:1.4em}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li.load-more[_ngcontent-jja-c29]{min-height:0}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li.load-more[_ngcontent-jja-c29]   span.load-link[_ngcontent-jja-c29], .comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li.load-more[_ngcontent-jja-c29]   span.shrink-link[_ngcontent-jja-c29]{cursor:pointer;opacity:.7}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li.load-more[_ngcontent-jja-c29]   span.load-link[_ngcontent-jja-c29]:hover, .comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li.load-more[_ngcontent-jja-c29]   span.shrink-link[_ngcontent-jja-c29]:hover{opacity:.9}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li.load-more[_ngcontent-jja-c29]   span.shrink-link[_ngcontent-jja-c29]:not(:first-child):before{content:"\b7";padding:0 .4em 0 .2em}.comments-app[_ngcontent-jja-c29]   .comment-list.has-background[_ngcontent-jja-c29]   li.comment-box[_ngcontent-jja-c29]{padding:8px;border-radius:8px;min-height:64px;margin-bottom:12px}.comments-app[_ngcontent-jja-c29]   .comment-list.has-background[_ngcontent-jja-c29]   li.comment-box[_ngcontent-jja-c29]   .reply-list[_ngcontent-jja-c29]{padding-bottom:4px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   .comment-approval-message[_ngcontent-jja-c29]{padding:8px;min-height:0;line-height:32px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   .comment-approval-message[_ngcontent-jja-c29]:before{font-family:FontAwesome;content:"\f00c";vertical-align:middle;margin:0 8px 0 12px;font-size:24px}.comments-app[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   .comment-approval-message[_ngcontent-jja-c29] > span[_ngcontent-jja-c29]{flex:1}.comments-app[_ngcontent-jja-c29]   .comments-attachment-image[_ngcontent-jja-c29]{max-width:100%;max-height:400px}.comments-app.hide-avatars[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   ca-user-photo[_ngcontent-jja-c29]{display:none}.comments-app.hide-avatars[_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   .reply-list[_ngcontent-jja-c29]   .spacer[_ngcontent-jja-c29]{width:32px}.complete-setup-message[_ngcontent-jja-c29]{background:#de5e07;color:#fff;border-radius:5px;padding:8px 0 0;text-align:center;font-size:18px;font-weight:bold;border:solid #000000 2px}.complete-setup-message[_ngcontent-jja-c29]   h1[_ngcontent-jja-c29]{margin-bottom:16px}.complete-setup-message[_ngcontent-jja-c29]   h1[_ngcontent-jja-c29]   .comments-logo[_ngcontent-jja-c29]{display:inline-block;vertical-align:middle;width:56px;height:49px;background-image:url(comments-icon-86.3b89f19a4b673156.png);background-position:-14px -20px}.complete-setup-message[_ngcontent-jja-c29]   div.content[_ngcontent-jja-c29]{padding:6px;background-color:#7a000f;display:block}.comments-app[lang=he][_ngcontent-jja-c29], .comments-app[lang=ar][_ngcontent-jja-c29], .comments-app[lang=fa][_ngcontent-jja-c29]{direction:rtl}.comments-app[lang=he][_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29], .comments-app[lang=ar][_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29], .comments-app[lang=fa][_ngcontent-jja-c29]   .comment-list[_ngcontent-jja-c29]   li[_ngcontent-jja-c29]{text-align:right}h3[_ngcontent-jja-c29]{font-weight:500;line-height:1.1;margin-top:0;margin-bottom:10px}.label[_ngcontent-jja-c29]{display:inline;padding:.2em .6em .3em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em}.label-danger[_ngcontent-jja-c29]{background-color:#d9534f}.alert[_ngcontent-jja-c29]{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}.alert[_ngcontent-jja-c29]   .close[_ngcontent-jja-c29]{-webkit-appearance:none;padding:0;cursor:pointer;background:0 0;border:0;font-size:21px;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;filter:alpha(opacity=20);opacity:.2}.alert-success[_ngcontent-jja-c29]{color:#3c763d;background-color:#dff0d8;border-color:#d6e9c6}.move-comments-box[_ngcontent-jja-c29]{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px;background-color:#dff0d8;border-color:#d6e9c6;text-align:center}.move-comments-box[_ngcontent-jja-c29]   button[_ngcontent-jja-c29]{cursor:pointer;font-size:20px;line-height:30px}</style><style>.page-wrapper[_ngcontent-jja-c29] {
+			background-color: transparent !important;
+		}</style><style>.circle-spinner[_ngcontent-jja-c14]{position:relative;margin:25px auto;width:40px;height:40px}.circle-spinner.small[_ngcontent-jja-c14]{width:20px;height:20px;margin:0 auto}.circle-spinner[_ngcontent-jja-c14]   .sk-child[_ngcontent-jja-c14]{position:absolute;top:0;left:0;width:100%;height:100%}.circle-spinner[_ngcontent-jja-c14]   .sk-child[_ngcontent-jja-c14]:before{display:block;margin:0 auto;width:15%;height:15%;border-radius:100%;background-color:#333;content:"";-webkit-animation:sk-circleBounceDelay 1.2s infinite ease-in-out both;animation:sk-circleBounceDelay 1.2s infinite ease-in-out both}.circle-spinner[_ngcontent-jja-c14]   .circle2[_ngcontent-jja-c14]{transform:rotate(30deg)}.circle-spinner[_ngcontent-jja-c14]   .circle3[_ngcontent-jja-c14]{transform:rotate(60deg)}.circle-spinner[_ngcontent-jja-c14]   .circle4[_ngcontent-jja-c14]{transform:rotate(90deg)}.circle-spinner[_ngcontent-jja-c14]   .circle5[_ngcontent-jja-c14]{transform:rotate(120deg)}.circle-spinner[_ngcontent-jja-c14]   .circle6[_ngcontent-jja-c14]{transform:rotate(150deg)}.circle-spinner[_ngcontent-jja-c14]   .circle7[_ngcontent-jja-c14]{transform:rotate(180deg)}.circle-spinner[_ngcontent-jja-c14]   .circle8[_ngcontent-jja-c14]{transform:rotate(210deg)}.circle-spinner[_ngcontent-jja-c14]   .circle9[_ngcontent-jja-c14]{transform:rotate(240deg)}.circle-spinner[_ngcontent-jja-c14]   .circle10[_ngcontent-jja-c14]{transform:rotate(270deg)}.circle-spinner[_ngcontent-jja-c14]   .circle11[_ngcontent-jja-c14]{transform:rotate(300deg)}.circle-spinner[_ngcontent-jja-c14]   .circle12[_ngcontent-jja-c14]{transform:rotate(330deg)}.circle-spinner[_ngcontent-jja-c14]   .circle2[_ngcontent-jja-c14]:before{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.circle-spinner[_ngcontent-jja-c14]   .circle3[_ngcontent-jja-c14]:before{-webkit-animation-delay:-1s;animation-delay:-1s}.circle-spinner[_ngcontent-jja-c14]   .circle4[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.9s;animation-delay:-.9s}.circle-spinner[_ngcontent-jja-c14]   .circle5[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.8s;animation-delay:-.8s}.circle-spinner[_ngcontent-jja-c14]   .circle6[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.7s;animation-delay:-.7s}.circle-spinner[_ngcontent-jja-c14]   .circle7[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.6s;animation-delay:-.6s}.circle-spinner[_ngcontent-jja-c14]   .circle8[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.5s;animation-delay:-.5s}.circle-spinner[_ngcontent-jja-c14]   .circle9[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.4s;animation-delay:-.4s}.circle-spinner[_ngcontent-jja-c14]   .circle10[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.3s;animation-delay:-.3s}.circle-spinner[_ngcontent-jja-c14]   .circle11[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.2s;animation-delay:-.2s}.circle-spinner[_ngcontent-jja-c14]   .circle12[_ngcontent-jja-c14]:before{-webkit-animation-delay:-.1s;animation-delay:-.1s}@-webkit-keyframes sk-circleBounceDelay{0%,80%,to{transform:scale(0)}40%{transform:scale(1)}}@keyframes sk-circleBounceDelay{0%,80%,to{transform:scale(0)}40%{transform:scale(1)}}</style><style>.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}  .has-error .form-control{border-color:#a94442;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.alert-danger[_ngcontent-jja-c25]{color:#a94442;background-color:#f2dede;border-color:#ebccd1}.alert[_ngcontent-jja-c25]{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}.btn[_ngcontent-jja-c25]{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:4px}.btn-primary[_ngcontent-jja-c25]{color:#fff;background-color:#337ab7;border-color:#2e6da4}.btn.disabled[_ngcontent-jja-c25], .btn[disabled][_ngcontent-jja-c25], fieldset[disabled][_ngcontent-jja-c25]   .btn[_ngcontent-jja-c25]{cursor:not-allowed;filter:alpha(opacity=65);box-shadow:none;opacity:.65}fieldset[_ngcontent-jja-c25]{margin:0;padding:0;border:none}.compose-form[_ngcontent-jja-c25]{display:flex;margin-bottom:8px}.compose-form[_ngcontent-jja-c25]   *[_ngcontent-jja-c25] + .spacer[_ngcontent-jja-c25]{width:8px}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]{flex:1;margin:0}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]{position:relative;display:flex;flex-wrap:wrap;align-items:flex-start}@media (max-width: 550px){.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]{display:block}}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .author-control[_ngcontent-jja-c25]{flex:1;font-size:80%;position:relative;top:-.3em}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .author-control[_ngcontent-jja-c25]   a[_ngcontent-jja-c25]{cursor:pointer}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .title[_ngcontent-jja-c25]{display:block;text-transform:uppercase;font-size:11px;font-weight:700}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25]{vertical-align:top;width:auto;max-width:160px}@media (max-width: 550px){.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25]{margin:0;padding:0;max-width:inherit}}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25]   .title[_ngcontent-jja-c25]{margin-bottom:6px}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25]   i.social[_ngcontent-jja-c25]{height:38px;width:38px;opacity:.9;display:inline-block;cursor:pointer}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25]   i.social[_ngcontent-jja-c25]:hover{opacity:1}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .spacer[_ngcontent-jja-c25]{width:20px}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .user-details[_ngcontent-jja-c25]{flex:1 auto;margin:0}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .user-details[_ngcontent-jja-c25]     input{margin-top:8px}@media (max-width: 550px){.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .user-details[_ngcontent-jja-c25]{margin:12px 0}}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .user-details[_ngcontent-jja-c25]   .reply-notification-label[_ngcontent-jja-c25]{font-weight:normal}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25]   .button-spacer[_ngcontent-jja-c25]{margin:0 34px 0 0}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25] > button[_ngcontent-jja-c25]{margin:23px 0 0;pointer-events:auto}@media (max-width: 550px){.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options[_ngcontent-jja-c25] > button[_ngcontent-jja-c25]{margin:0}}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options.no-social[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25]{display:none}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options.no-social[_ngcontent-jja-c25]   .social-options[_ngcontent-jja-c25] + .spacer[_ngcontent-jja-c25]{display:none}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options.no-social[_ngcontent-jja-c25]   .title[_ngcontent-jja-c25]{display:none}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options.no-social[_ngcontent-jja-c25] > button[_ngcontent-jja-c25]{margin-top:8px}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   .compose-options.logged-in[_ngcontent-jja-c25] > button[_ngcontent-jja-c25]{margin-top:0}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]   button[type=submit][_ngcontent-jja-c25]{min-width:80px}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group{position:relative}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group .error-addon{display:none;position:absolute;top:0;bottom:0;right:0;width:32px;background-color:#a94442;border:solid #a94442 1px;border-radius:0 4px 4px 0;color:#fff;font-size:16px;text-align:center}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group .error-addon:before{position:absolute;top:-4px;left:0;right:0;bottom:0;font-family:FontAwesome;height:1em;margin:auto}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group.has-error{padding-right:32px}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group.has-error input, .compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group.has-error textarea{border-radius:4px 0 0 4px;border-right-width:0}.compose-form[_ngcontent-jja-c25]   .compose-box[_ngcontent-jja-c25]     .wxa-form-group.has-error .error-addon{display:block}.compose-form[_ngcontent-jja-c25]   .comments-textbox[_ngcontent-jja-c25]{padding:0;background-color:#fff;border-radius:4px;height:auto;margin-bottom:10px}.compose-form[_ngcontent-jja-c25]   .comments-textbox[_ngcontent-jja-c25]:focus{outline:-webkit-focus-ring-color auto 5px}.compose-form[_ngcontent-jja-c25]   .comments-textbox-content[_ngcontent-jja-c25]{display:inline-block;width:100%;padding:6px 12px;min-height:54px;height:auto;word-break:break-word}.compose-form[_ngcontent-jja-c25]   .comments-textbox-content[_ngcontent-jja-c25]:focus{outline:0}.compose-form[_ngcontent-jja-c25]   .comments-textbox-emojis[_ngcontent-jja-c25]{padding:0 12px;background:#eee;border-top:solid #ddd 1px}</style><style>[_nghost-jja-c18]{display:block}div.attachment-image[_ngcontent-jja-c18]{position:relative;display:inline-block;height:88px;width:88px;background-size:cover;background-position:50% 50%}div.attachment-image[_ngcontent-jja-c18]   .attachment-image-overlay[_ngcontent-jja-c18]{display:none;position:absolute;top:0;left:0;bottom:0;right:0;background-color:rgba(0,0,0,.4)}div.attachment-image[_ngcontent-jja-c18]   .attachment-image-remove-button[_ngcontent-jja-c18]{color:#ccc;text-shadow:2px 2px 4px #555;position:absolute;top:6px;right:6px}div.attachment-image[_ngcontent-jja-c18]   .attachment-image-remove-button[_ngcontent-jja-c18]:hover{color:#fff}div.attachment-image[_ngcontent-jja-c18]:hover   .attachment-image-overlay[_ngcontent-jja-c18]{display:block}div.attachment-image-uploading[_ngcontent-jja-c18]{opacity:1;width:88px;height:88px;border:solid white 1px;background:rgba(255,255,255,.7);transition:opacity .3s}div.attachment-image-uploading.upload-done[_ngcontent-jja-c18]{opacity:0}.attachment-image-progress[_ngcontent-jja-c18]{position:absolute;bottom:5px;width:80%;left:10%;height:10px;border:solid #ccc 1px;background-color:#fff}.attachment-image-progress-bar[_ngcontent-jja-c18]{background-color:#535384;height:8px;width:0;transition:width .3s}</style><style>comments-profile-image[_ngcontent-jja-c19]{display:inline-block}.profile-image-editor[_ngcontent-jja-c19]{position:relative;min-width:50px;text-align:center;line-height:50px}.profile-image-editor[_ngcontent-jja-c19]   img[_ngcontent-jja-c19]{max-height:50px;max-width:50px;border-radius:3px}.profile-image-editor[_ngcontent-jja-c19]   .change-profile-image-icon[_ngcontent-jja-c19]{opacity:0;position:absolute;top:2px;right:2px;background:rgba(255,255,255,.8);border-radius:2px;color:#000;padding:4px;transition:opacity .2s}.profile-image-editor[_ngcontent-jja-c19]:hover   .change-profile-image-icon[_ngcontent-jja-c19]{opacity:1}.profile-image-editor.profile-image-changable[_ngcontent-jja-c19]{cursor:pointer}</style><style>.rating-element[_ngcontent-jja-c22]{display:inline-block;margin-right:2px}</style><style>[_nghost-jja-c26]{height:50px;width:50px;min-width:50px;line-height:50px;text-align:center}img[_ngcontent-jja-c26]{max-height:50px;max-width:50px;border-radius:3px;overflow:hidden}.small-profile-image[_nghost-jja-c26]{height:38px;width:38px;min-width:38px;line-height:38px}.small-profile-image[_nghost-jja-c26]   img[_ngcontent-jja-c26]{max-width:38px;max-height:38px}</style><style>a[_ngcontent-jja-c27]:before{content:" "}</style><style>.comments-heart-button[_ngcontent-jja-c28]{position:relative;height:15px;width:15px}.comments-heart-button[_ngcontent-jja-c28]   .fa-heart-o[_ngcontent-jja-c28]{position:relative}.comments-heart-button[_ngcontent-jja-c28]   .fa-heart[_ngcontent-jja-c28]{position:absolute;top:0;left:0;transition:.3s ease opacity}</style><style wix-style="">.Title{ font:normal normal bold 17px/1.4em tahoma,tahoma-w01-regular,tahoma-w02-regular,tahoma-w10-regular,tahoma-w15--regular,tahoma-w99-regular,sans-serif; } .Menu{ font:normal normal normal 15px/1.4em raleway,sans-serif; } .Page-title{ font:normal normal bold 40px/1.4em raleway,sans-serif; } .Heading-XL{ font:normal normal bold 80px/1.4em raleway,sans-serif; } .Heading-L{ font:normal normal bold 48px/1.4em raleway,sans-serif; } .Heading-M{ font:normal normal normal 20px/1.4em raleway,sans-serif; } .Heading-S{ font:normal normal normal 18px/1.4em raleway,sans-serif; } .Body-L{ font:normal normal normal 17px/1.4em raleway,sans-serif; } .Body-M{ font:normal normal normal 15px/1.4em raleway,sans-serif; } .Body-S{ font:normal normal normal 13px/1.4em raleway,sans-serif; } .Body-XS{ font:normal normal normal 10px/1.4em arial,ｍｓ ｐゴシック,ms pgothic,돋움,dotum,helvetica,sans-serif; } }</style><link type="text/css" rel="stylesheet" href="./css" id="wix-google-fonts"><link type="text/css" rel="stylesheet" href="./languages-woff2.css"><link type="text/css" rel="stylesheet" href="./wixMadefor.css"><style>:focus {
+    outline: none;
+}
+
+.js-focus-visible .focus-visible:focus,
+.js-focus-visible .focus-visible:focus ~ .wixSdkShowFocusOnSibling
+{
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 0 1px 2px #3899EC;
+}
+</style><script src="./focus-visible.min.js.descarga" id="dynamic_script_FOCUS_VISIBLE"></script></head>
+	<body class="platform-wix js-focus-visible">
+		<script type="text/javascript" src="./wix.min.js.descarga"></script>
+		<comments-widget-app ng-version="13.0.2" role="region" aria-label="Comments"><widget-main _nghost-jja-c29=""><!---->
+
+<div _ngcontent-jja-c29="" class="comments-app" lang="es">
+	<h3 _ngcontent-jja-c29="">
+		<!---->
+		<span _ngcontent-jja-c29="">2 comentarios</span><!---->
+	</h3><!---->
+
+	<comments-compose _ngcontent-jja-c29="" _nghost-jja-c25="" role="region" aria-label="Add a comment"><form _ngcontent-jja-c25="" novalidate="" class="compose-form clearfix ng-untouched ng-pristine ng-invalid">
+
+	<comments-profile-image _ngcontent-jja-c25="" component="&#39;widget&#39;" _nghost-jja-c19=""><div _ngcontent-jja-c19="" tabindex="0" role="button" aria-label="Upload Profile Image" class="profile-image-editor profile-image-changable"><img _ngcontent-jja-c19="" alt="Profile Image" src="./none.png"><i _ngcontent-jja-c19="" class="fa fa-pencil change-profile-image-icon"></i></div></comments-profile-image><!---->
+
+	<div _ngcontent-jja-c25="" class="spacer"></div>
+
+	<div _ngcontent-jja-c25="" class="compose-box">
+		<div _ngcontent-jja-c25="" class="wxa-form-group">
+
+			<div _ngcontent-jja-c25="" class="form-control comments-textbox">
+				<div _ngcontent-jja-c25="" ngdefaultcontrol="" contenteditable="true" name="comment" required="" role="textbox" aria-multiline="true" class="comments-textbox-content placeholder-active ng-untouched ng-pristine ng-invalid" aria-label="Déjanos un mensaje" aria-describedby="comment-box-emoji-message">Déjanos un mensaje</div><!---->
+				<!---->
+			</div>
+			<span _ngcontent-jja-c25="" id="comment-box-error" tabindex="0" class="error-addon fa-exclamation-triangle" title="Ingresa tu comentario aquí">
+				<span _ngcontent-jja-c25="" translate="" class="sr-only">Ingresa tu comentario aquí</span>
+			</span><!---->
+			<!---->
+			<!---->
+		</div>
+
+		<comments-attachment-uploader _ngcontent-jja-c25="" _nghost-jja-c18=""><!----></comments-attachment-uploader>
+
+		<!---->
+		<div _ngcontent-jja-c25="">
+			<star-rating _ngcontent-jja-c25="" name="rating" _nghost-jja-c22="" class="ng-untouched ng-pristine ng-valid"><span _ngcontent-jja-c22="" aria-valuemin="0" aria-describedby="rating-desc" class="star-rating" tabindex="0" role="slider" aria-valuemax="5" aria-valuetext="No rating" aria-label="No rating"><svg _ngcontent-jja-c22="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true" class="rating-element" width="16" height="16" aria-label=" "><defs _ngcontent-jja-c22=""><lineargradient _ngcontent-jja-c22="" id="gradient"><stop _ngcontent-jja-c22="" stop-color="#fbfc3e" offset="0"></stop><stop _ngcontent-jja-c22="" stop-color="#fca72a" offset="1"></stop></lineargradient></defs><path _ngcontent-jja-c22="" d="m14.976 2.7885-3.8899 7.959c-0.03567 0.07607-0.09763 0.13669-0.17446 0.17068-0.02089 0.01041-0.04279 0.01871-0.06535 0.02475l-8.7028 1.2487 6.3159 6.1411c0.084394 0.0848 0.11937 0.20696 0.092657 0.32357l-1.4814 8.6757 7.8004-4.1049c0.09885-0.04967 0.21541-0.04944 0.31406 6.1e-4l7.7813 4.0917-1.5005-8.6971c-0.01969-0.11072 0.01531-0.22413 0.09388-0.30455l6.3149-6.1725-8.7011-1.2327c-0.11272-0.0146-0.21124-0.08326-0.26395-0.18397l-3.9336-7.94z" stroke-linejoin="round" stroke-width="1.4" fill="none" stroke="#f57900"></path></svg><!----><svg _ngcontent-jja-c22="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true" class="rating-element" width="16" height="16" aria-label=" "><defs _ngcontent-jja-c22=""><lineargradient _ngcontent-jja-c22="" id="gradient"><stop _ngcontent-jja-c22="" stop-color="#fbfc3e" offset="0"></stop><stop _ngcontent-jja-c22="" stop-color="#fca72a" offset="1"></stop></lineargradient></defs><path _ngcontent-jja-c22="" d="m14.976 2.7885-3.8899 7.959c-0.03567 0.07607-0.09763 0.13669-0.17446 0.17068-0.02089 0.01041-0.04279 0.01871-0.06535 0.02475l-8.7028 1.2487 6.3159 6.1411c0.084394 0.0848 0.11937 0.20696 0.092657 0.32357l-1.4814 8.6757 7.8004-4.1049c0.09885-0.04967 0.21541-0.04944 0.31406 6.1e-4l7.7813 4.0917-1.5005-8.6971c-0.01969-0.11072 0.01531-0.22413 0.09388-0.30455l6.3149-6.1725-8.7011-1.2327c-0.11272-0.0146-0.21124-0.08326-0.26395-0.18397l-3.9336-7.94z" stroke-linejoin="round" stroke-width="1.4" fill="none" stroke="#f57900"></path></svg><!----><svg _ngcontent-jja-c22="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true" class="rating-element" width="16" height="16" aria-label=" "><defs _ngcontent-jja-c22=""><lineargradient _ngcontent-jja-c22="" id="gradient"><stop _ngcontent-jja-c22="" stop-color="#fbfc3e" offset="0"></stop><stop _ngcontent-jja-c22="" stop-color="#fca72a" offset="1"></stop></lineargradient></defs><path _ngcontent-jja-c22="" d="m14.976 2.7885-3.8899 7.959c-0.03567 0.07607-0.09763 0.13669-0.17446 0.17068-0.02089 0.01041-0.04279 0.01871-0.06535 0.02475l-8.7028 1.2487 6.3159 6.1411c0.084394 0.0848 0.11937 0.20696 0.092657 0.32357l-1.4814 8.6757 7.8004-4.1049c0.09885-0.04967 0.21541-0.04944 0.31406 6.1e-4l7.7813 4.0917-1.5005-8.6971c-0.01969-0.11072 0.01531-0.22413 0.09388-0.30455l6.3149-6.1725-8.7011-1.2327c-0.11272-0.0146-0.21124-0.08326-0.26395-0.18397l-3.9336-7.94z" stroke-linejoin="round" stroke-width="1.4" fill="none" stroke="#f57900"></path></svg><!----><svg _ngcontent-jja-c22="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true" class="rating-element" width="16" height="16" aria-label=" "><defs _ngcontent-jja-c22=""><lineargradient _ngcontent-jja-c22="" id="gradient"><stop _ngcontent-jja-c22="" stop-color="#fbfc3e" offset="0"></stop><stop _ngcontent-jja-c22="" stop-color="#fca72a" offset="1"></stop></lineargradient></defs><path _ngcontent-jja-c22="" d="m14.976 2.7885-3.8899 7.959c-0.03567 0.07607-0.09763 0.13669-0.17446 0.17068-0.02089 0.01041-0.04279 0.01871-0.06535 0.02475l-8.7028 1.2487 6.3159 6.1411c0.084394 0.0848 0.11937 0.20696 0.092657 0.32357l-1.4814 8.6757 7.8004-4.1049c0.09885-0.04967 0.21541-0.04944 0.31406 6.1e-4l7.7813 4.0917-1.5005-8.6971c-0.01969-0.11072 0.01531-0.22413 0.09388-0.30455l6.3149-6.1725-8.7011-1.2327c-0.11272-0.0146-0.21124-0.08326-0.26395-0.18397l-3.9336-7.94z" stroke-linejoin="round" stroke-width="1.4" fill="none" stroke="#f57900"></path></svg><!----><svg _ngcontent-jja-c22="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true" class="rating-element" width="16" height="16" aria-label=" "><defs _ngcontent-jja-c22=""><lineargradient _ngcontent-jja-c22="" id="gradient"><stop _ngcontent-jja-c22="" stop-color="#fbfc3e" offset="0"></stop><stop _ngcontent-jja-c22="" stop-color="#fca72a" offset="1"></stop></lineargradient></defs><path _ngcontent-jja-c22="" d="m14.976 2.7885-3.8899 7.959c-0.03567 0.07607-0.09763 0.13669-0.17446 0.17068-0.02089 0.01041-0.04279 0.01871-0.06535 0.02475l-8.7028 1.2487 6.3159 6.1411c0.084394 0.0848 0.11937 0.20696 0.092657 0.32357l-1.4814 8.6757 7.8004-4.1049c0.09885-0.04967 0.21541-0.04944 0.31406 6.1e-4l7.7813 4.0917-1.5005-8.6971c-0.01969-0.11072 0.01531-0.22413 0.09388-0.30455l6.3149-6.1725-8.7011-1.2327c-0.11272-0.0146-0.21124-0.08326-0.26395-0.18397l-3.9336-7.94z" stroke-linejoin="round" stroke-width="1.4" fill="none" stroke="#f57900"></path></svg><!----><!----><div _ngcontent-jja-c22="" id="rating-desc" style="display: none;">Use the right and left keyboard keys to set your rating</div></span></star-rating><!---->
+			<!---->
+		</div><!---->
+
+		<!---->
+	</div>
+</form>
+</comments-compose><!---->
+
+	<!---->
+
+	<!---->
+
+	<comments-widget-styles _ngcontent-jja-c29=""><style _ngcontent-jja-c29="">
+            comments-widget-app {
+                display: block;
+                padding: 0 12px;
+                background: rgb(237, 239, 240);
+color: rgb(47, 47, 47);
+border: solid #BAD2D6 1px;
+border-radius: 8px;
+
+            }
+
+        	h3 {
+		    	font-size: 24px;
+    			color: inherit;
+    		}
+
+            body .comments-app,
+            body .comments-app input.form-control,
+            body .comments-app textarea.form-control,
+            body .comments-app button,
+            body .comments-app .comments-textbox-content {
+                font-size: 14px;
+
+            }
+        
+            .compose-form .btn.btn-primary {
+                background-color: #607d82;
+                background-image: linear-gradient(to bottom, #607d82, #465b5f);
+                color: #000000;
+                border-color:  #465b5f;
+            }
+
+            .compose-form .btn.btn-primary:hover,
+            .compose-form .btn.btn-primary:active,
+            .compose-form .btn.btn-primary:focus,
+            .compose-form .btn.btn-primary.active,
+            .compose-form .btn.btn-primary.disabled,
+            .compose-form .btn.btn-primary[disabled] {
+                color: #000000;
+                background-color: #465b5f;
+                border-color: #465b5f;
+            }
+        </style></comments-widget-styles>
+
+	<!---->
+
+	<ul _ngcontent-jja-c29="" role="region" aria-label="Review comments" class="comment-list">
+		<!---->
+		<li _ngcontent-jja-c29="" class="comment-box">
+			<ca-user-photo _ngcontent-jja-c29="" _nghost-jja-c26=""><div _ngcontent-jja-c26="" class="profile-image"><!----><img _ngcontent-jja-c26="" src="./50d855294008cafa3c311856b68390bb.png" alt="Sandra Kaiser"><!----></div></ca-user-photo>
+			<div _ngcontent-jja-c29="" class="spacer"></div>
+			<div _ngcontent-jja-c29="" layout-flex="">
+				<!---->
+				<div _ngcontent-jja-c29="" class="content">
+					<comment-content _ngcontent-jja-c29="" _nghost-jja-c27=""><span _ngcontent-jja-c27=""><img class="emoji" src="./heart.png" data-emoji="❤" alt="heart"></span><!----><!----></comment-content>
+					<!---->
+				</div>
+				<!---->
+				<!---->
+				<div _ngcontent-jja-c29="">
+					<span _ngcontent-jja-c29="" class="author">Sandra Kaiser</span><!---->
+					<!---->
+					<span _ngcontent-jja-c29="" class="timestamp" title="2 de nov. de 2021 13:20">hace un año</span><!---->
+					<span _ngcontent-jja-c29="" class="action-link">
+						<a _ngcontent-jja-c29="" data-action="reply" translate="" role="button" tabindex="0">Responder</a>
+					</span><!---->
+					<!---->
+					<span _ngcontent-jja-c29="" class="action-link">
+						<span _ngcontent-jja-c29="" id="like-count" aria-live="polite" aria-atomic="true">0<span _ngcontent-jja-c29="" class="sr-only"> likes currently</span></span>
+						<a _ngcontent-jja-c29="" tabindex="0" role="button" aria-describedby="like-count" aria-controls="like-count" class="comments-comment-upvote-link" aria-label="Like">
+							<comments-heart-button _ngcontent-jja-c29="" _nghost-jja-c28=""><span _ngcontent-jja-c28="" class="comments-heart-button"><i _ngcontent-jja-c28="" class="fa fa-heart-o"><i _ngcontent-jja-c28="" class="fa fa-heart" style="opacity: 1e-05;"></i></i></span></comments-heart-button>
+						</a>
+					</span><!---->
+				</div>
+
+				<!---->
+				<ul _ngcontent-jja-c29="" class="reply-list">
+					<!---->
+				</ul>
+			</div>
+		</li><li _ngcontent-jja-c29="" class="comment-box">
+			<ca-user-photo _ngcontent-jja-c29="" _nghost-jja-c26=""><div _ngcontent-jja-c26="" class="profile-image"><!----><img _ngcontent-jja-c26="" src="./50d855294008cafa3c311856b68390bb.png" alt="Sandra Kaiser"><!----></div></ca-user-photo>
+			<div _ngcontent-jja-c29="" class="spacer"></div>
+			<div _ngcontent-jja-c29="" layout-flex="">
+				<!---->
+				<div _ngcontent-jja-c29="" class="content">
+					<comment-content _ngcontent-jja-c29="" _nghost-jja-c27=""><span _ngcontent-jja-c27="">Me gusta los dispensadores de agua como lo consigo</span><!----><!----></comment-content>
+					<!---->
+				</div>
+				<!---->
+				<!---->
+				<div _ngcontent-jja-c29="">
+					<span _ngcontent-jja-c29="" class="author">Sandra Kaiser</span><!---->
+					<!---->
+					<span _ngcontent-jja-c29="" class="timestamp" title="2 de nov. de 2021 13:20">hace un año</span><!---->
+					<span _ngcontent-jja-c29="" class="action-link">
+						<a _ngcontent-jja-c29="" data-action="reply" translate="" role="button" tabindex="0">Responder</a>
+					</span><!---->
+					<!---->
+					<span _ngcontent-jja-c29="" class="action-link">
+						<span _ngcontent-jja-c29="" id="like-count" aria-live="polite" aria-atomic="true">1<span _ngcontent-jja-c29="" class="sr-only"> likes currently</span></span>
+						<a _ngcontent-jja-c29="" tabindex="0" role="button" aria-describedby="like-count" aria-controls="like-count" class="comments-comment-upvote-link" aria-label="Like">
+							<comments-heart-button _ngcontent-jja-c29="" _nghost-jja-c28=""><span _ngcontent-jja-c28="" class="comments-heart-button"><i _ngcontent-jja-c28="" class="fa fa-heart-o"><i _ngcontent-jja-c28="" class="fa fa-heart" style="opacity: 1e-05;"></i></i></span></comments-heart-button>
+						</a>
+					</span><!---->
+				</div>
+
+				<!---->
+				<ul _ngcontent-jja-c29="" class="reply-list">
+					<!---->
+				</ul>
+			</div>
+		</li><!---->
+		<!---->
+	</ul><!---->
+</div>
+
+<!---->
+</widget-main><!----><!----></comments-widget-app>
+
+		<script>
+			var _commentsData = {"settings":{"i":{"approveComments":true,"bootstrapTime":"2018-01-18T23:54:03.136Z","emailNotification":"_notify","enableEmoji":true,"enableNewCompose":true,"enableRating":true,"enableVotes":true,"enableWebsite":false,"exp":{"freeNotifications":true},"replies":"users","showSocialSharing":false,"version":1,"wordBlacklist":["hijueputa","puta","malparido","culo","guebón","guevón"]},"w":{"bootstrapTime":1516319714626,"comment":{"background":"$color-8","textColor":"$color-1","textColorInherit":true,"transparentBackground":true},"commentsPerPage":10,"count":{"messages":11},"enableVK":false,"lang":"es","settingsOpened":true,"version":9,"widget":{"background":"$color-1","border":{"color":"$color-6","round":true,"show":true,"width":1},"buttonColor":"$color-8","fontSize":14,"textColor":"$color-5","titleSize":24,"transparentBackground":false}}},"comments":{"-MVn6rg6lV9q2PfSorpC":{"author":"Naima","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/organizador-mueble-cisterna-gabinete","pageTitle":"Organizador Mueble Cisterna Gabinete con Espejo | damecos","path":"\/product-page\/organizador-mueble-cisterna-gabinete","text":"Precio ❤\n\n","thread":{"-MrTQJ4WhFEmjGZ27mzH":{"author":"Erika Johanna Bareño Escobar ","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/organizador-mueble-cisterna-gabinete","pageTitle":"Organizador Mueble Cisterna Gabinete | damecos","text":"Buenas tardes, nos puede encontrar en las principales tiendas de cadena.\n\nDisculpe no respondimos antes por temas de traslado de bodega, cualquier inquietud estaremos atentos.\n","time":1640114242003,"userId":"74114b7f452214f7225dce5f387c7f3c","userType":"email"}},"time":1615765408307,"userId":"b886860545e777bcc4e9656c5ced955d","userType":"email","voteData":{"e9051261729d04146440e8e8e318a48f6659647e23729fe02f108dbe7620a469":1},"votes":1},"-MiruMUFg0CSsF5r8XyH":{"author":"Milena","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/organizador-mueble-cisterna-gabinete","pageTitle":"Organizador Mueble Cisterna Gabinete | damecos","path":"\/product-page\/organizador-mueble-cisterna-gabinete","text":"Precio?","thread":{"-MrTP9ivVNsB-pgwuCFH":{"author":"Erika Johanna Bareño Escobar ","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/organizador-mueble-cisterna-gabinete","pageTitle":"Organizador Mueble Cisterna Gabinete | damecos","text":"Buenas tardes, nos puede encontrar en las principales tiendas de cadena.\n\nDisculpe Sra Milena por no responder antes ya que estábamos en procesos de traslado de bodega, cualquier duda o inquietud estamos atentos.\n\n","time":1640114109845,"userId":"74114b7f452214f7225dce5f387c7f3c","userType":"email"}},"time":1630878137598,"userId":"7e908819c89c33ee501d4f5d7b515162","userType":"email","voteData":{"e9051261729d04146440e8e8e318a48f6659647e23729fe02f108dbe7620a469":1},"votes":1},"-MjRUI3GUOp01orIWIkU":{"author":"claudia","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/platero-puente-escurridor","pageTitle":"Platero Puente Escurridor | damecos","path":"\/product-page\/platero-puente-escurridor","text":"Donde lo puedo comprar","thread":{"-MjUo3OLjEoz-zDu44d8":{"author":"Leonardo Manrique","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/platero-puente-escurridor","pageTitle":"Platero Puente Escurridor | damecos","rating":5,"text":"Lo consigues en Homecenter o Éxito.","time":1631547637423,"userId":"2672ff1bf431c78cc21ef313ad3526dd","userType":"email"}},"time":1631491798392,"userId":"b1b24789f00018e7299c3e3cb52f8bce","userType":"email"},"-MnWsHN2JzspIfubl_tn":{"author":"Sandra Kaiser","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/tanque-dispensador-de-agua","pageTitle":"Tanque Dispensador 4 L | damecos","path":"\/product-page\/tanque-dispensador-de-agua","text":"Me gusta los dispensadores de agua como lo consigo","time":1635877201616,"userId":"50d855294008cafa3c311856b68390bb","userType":"email","voteData":{"1093a19dbf73cf1e84722381a405950ce4083ed047db99a021272cbe94acc073":1},"votes":1},"-MnWsOiv5Iz9fi5LmO21":{"author":"Sandra Kaiser","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/tanque-dispensador-de-agua","pageTitle":"Tanque Dispensador 4 L | damecos","path":"\/product-page\/tanque-dispensador-de-agua","text":"❤","time":1635877231729,"userId":"50d855294008cafa3c311856b68390bb","userType":"email"},"-Mqg8_qF450pYlTd--KQ":{"author":"Douglas Castro","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/platero-puente-escurridor","pageTitle":"Platero Puente Escurridor | damecos","path":"\/product-page\/platero-puente-escurridor","text":"Buenas noches me interesa comprarlo gracias","time":1639270738218,"userId":"452ec9f0ad48b09a709a1384fbdb5ec3","userType":"email"},"-MyiW1nubcMT3wY0eamj":{"author":"Paul","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/jarra-3-8-litros","pageTitle":"Jarra 3.8 L | damecos","path":"\/product-page\/jarra-3-8-litros","text":"Buenas tardes necesito 6 jarras maxi de 3.8 L\n\n","time":1647900375245,"userId":"2953c27af435e755509aefd1113a0f20","userType":"email"},"-MyiWE2f2DDWKohG2KyT":{"author":"Paul","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/jarra-3-8-litros","pageTitle":"Jarra 3.8 L | damecos","path":"\/product-page\/jarra-3-8-litros","text":"Necesito un número de wassap para contactar y hacer una compra","time":1647900422500,"userId":"2953c27af435e755509aefd1113a0f20","userType":"email"},"-N2vqx0EbCG8y3hw2xaa":{"author":"Claudia Parra Prada","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/porta-papel-cocina-adherente-ii","pageTitle":"Porta Papel Cocina Adherente | damecos","path":"\/product-page\/porta-papel-cocina-adherente-ii","text":"Muy buen producto, quisiera ser contactada para comprar.","time":1653492932446,"userId":"44d25c070e71329bb8ce5f39a76147dc","userType":"email"},"-N2vr6G1GNcFBt0EgqLY":{"author":"Claudia Parra Prada","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/canasta-colgante-cocina","pageTitle":"Canasta Colgante Cocina | damecos","path":"\/product-page\/canasta-colgante-cocina","text":"Me interesa para comprar.","time":1653492970726,"userId":"44d25c070e71329bb8ce5f39a76147dc","userType":"email"},"-N4iGzA2PmhxLfEWccV-":{"author":"MEGALIDER SAS","lang":"es","page":"http:\/\/www.damecos.com\/product-page\/tapete-antideslizante-ba%C3%B1o-3","pageTitle":"Tapete Antideslizante Baño 64 x 42 cm | damecos","path":"\/product-page\/tapete-antideslizante-ba%C3%B1o-3","text":"Buenas tardes! le hablamos de MEGALIDER SAS, necesitamos comprar 60 tapetes de la ref. TAB70, favor indicarnos si nos puede cotizar o como compralos con ustedes?\nEnviarnos respuesta a info@megalidersas.com\n\n","time":1655412608045,"userId":"149dd77f2bc6f25865e52269e9b09118","userType":"email"}},"texts":{"lang":"es","translations":{"ONE_COMMENT":"1 comentario","SOME_COMMENTS":"comentarios","LEAVE_A_MESSAGE":"Déjanos un mensaje","COMMENT":"Comentar","POSTING_AS":"Enviado por","REMOVE_AUTHOR":"Cerrar sesión","REPLY":"Responder","DELETE":"Borrar","SEE_MORE_COMMENTS":"Ver más comentarios...","CONNECT_WITH_TITLE":"Conectar con","USER_DETAILS":"O ingresar tus datos","AUTHOR_NAME":"Tu nombre","AUTHOR_EMAIL":"Tu correo","AUTHOR_EMAIL_OPTIONAL":"Tu email (opcional)","AUTHOR_WEBSITE":"Tu página web (opcional)","SEE_MORE":"Mostrar más...","SHRINK":"Ver menos","COMMENT_WAITING_APPROVAL":"¡Gracias! Su comentario ha sido enviado correctamente. Se publicará lo antes posible.","ERROR_MISSING_COMMENT":"Ingresa tu comentario aquí","ERROR_MISSING_NAME":"Ingresa tu nombre aquí","ERROR_MISSING_EMAIL":"Ingresa una dirección de email válida","ERROR_REQUIRED_FIELD":"Esta casilla es obligatoria","ERROR_BLACKLIST_WORD":"Tu comentario incluye una palabra no permitida","widget.compose.notifyReplies":"Notificar sobre respuestas","widget.maxFreeComments.label":"Importante","widget.maxFreeComments.text":"Has llegado al máximo número de comentarios permitidos en la versión gratis. Puedes hacer upgrade a la versión premium de tu app de Comments para un número ilimitado de comentarios.","DOUBLE_CLICK_TO_ACTIVATE":"Haz doble clic aquí para completar la configuración"},"moment":"\/\/! moment.js locale configuration\n\/\/! locale : Spanish [es]\n\/\/! author : Julio Napurí : https:\/\/github.com\/julionc\n\n;(function (global, factory) {\n   typeof exports === 'object' && typeof module !== 'undefined'\n       && typeof require === 'function' ? factory(require('..\/moment')) :\n   typeof define === 'function' && define.amd ? define(['..\/moment'], factory) :\n   factory(global.moment)\n}(this, (function (moment) { 'use strict';\n\n    \/\/! moment.js locale configuration\n\n    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(\n            '_'\n        ),\n        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_'),\n        monthsParse = [\n            \/^ene\/i,\n            \/^feb\/i,\n            \/^mar\/i,\n            \/^abr\/i,\n            \/^may\/i,\n            \/^jun\/i,\n            \/^jul\/i,\n            \/^ago\/i,\n            \/^sep\/i,\n            \/^oct\/i,\n            \/^nov\/i,\n            \/^dic\/i,\n        ],\n        monthsRegex = \/^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene\\.?|feb\\.?|mar\\.?|abr\\.?|may\\.?|jun\\.?|jul\\.?|ago\\.?|sep\\.?|oct\\.?|nov\\.?|dic\\.?)\/i;\n\n    var es = moment.defineLocale('es', {\n        months: 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split(\n            '_'\n        ),\n        monthsShort: function (m, format) {\n            if (!m) {\n                return monthsShortDot;\n            } else if (\/-MMM-\/.test(format)) {\n                return monthsShort[m.month()];\n            } else {\n                return monthsShortDot[m.month()];\n            }\n        },\n        monthsRegex: monthsRegex,\n        monthsShortRegex: monthsRegex,\n        monthsStrictRegex: \/^(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\/i,\n        monthsShortStrictRegex: \/^(ene\\.?|feb\\.?|mar\\.?|abr\\.?|may\\.?|jun\\.?|jul\\.?|ago\\.?|sep\\.?|oct\\.?|nov\\.?|dic\\.?)\/i,\n        monthsParse: monthsParse,\n        longMonthsParse: monthsParse,\n        shortMonthsParse: monthsParse,\n        weekdays: 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),\n        weekdaysShort: 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),\n        weekdaysMin: 'do_lu_ma_mi_ju_vi_sá'.split('_'),\n        weekdaysParseExact: true,\n        longDateFormat: {\n            LT: 'H:mm',\n            LTS: 'H:mm:ss',\n            L: 'DD\/MM\/YYYY',\n            LL: 'D [de] MMMM [de] YYYY',\n            LLL: 'D [de] MMMM [de] YYYY H:mm',\n            LLLL: 'dddd, D [de] MMMM [de] YYYY H:mm',\n        },\n        calendar: {\n            sameDay: function () {\n                return '[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';\n            },\n            nextDay: function () {\n                return '[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';\n            },\n            nextWeek: function () {\n                return 'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';\n            },\n            lastDay: function () {\n                return '[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';\n            },\n            lastWeek: function () {\n                return (\n                    '[el] dddd [pasado a la' +\n                    (this.hours() !== 1 ? 's' : '') +\n                    '] LT'\n                );\n            },\n            sameElse: 'L',\n        },\n        relativeTime: {\n            future: 'en %s',\n            past: 'hace %s',\n            s: 'unos segundos',\n            ss: '%d segundos',\n            m: 'un minuto',\n            mm: '%d minutos',\n            h: 'una hora',\n            hh: '%d horas',\n            d: 'un día',\n            dd: '%d días',\n            M: 'un mes',\n            MM: '%d meses',\n            y: 'un año',\n            yy: '%d años',\n        },\n        dayOfMonthOrdinalParse: \/\\d{1,2}º\/,\n        ordinal: '%dº',\n        week: {\n            dow: 1, \/\/ Monday is the first day of the week.\n            doy: 4, \/\/ The week that contains Jan 4th is the first week of the year.\n        },\n        invalidDate: 'Fecha invalida',\n    });\n\n    return es;\n\n})));\n"}};
+		</script>
+	<script src="./runtime.754dc6ac236423b0.js.descarga" type="module"></script><script src="./polyfills.bb02b18a9cd028c2.js.descarga" type="module"></script><script src="./main.5d6338dbb23e0ab3.js.descarga" type="module"></script>
+
+<script defer="" src="./v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon="{&quot;rayId&quot;:&quot;7bfade394bed0709&quot;,&quot;token&quot;:&quot;40eb768d9cb948f4bc365121fddac224&quot;,&quot;version&quot;:&quot;2023.3.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+</body><div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div class="resize-sensor-expand" style="pointer-events: none; position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 892px; height: 296px;"></div></div><div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 200%; height: 200%;"></div></div></div></html>
