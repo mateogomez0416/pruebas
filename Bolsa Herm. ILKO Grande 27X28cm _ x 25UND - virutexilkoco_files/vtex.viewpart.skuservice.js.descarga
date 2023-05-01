@@ -1,0 +1,40 @@
+﻿/// <reference path="jquery-1.4.1-vsdoc.js" />
+/// <reference path="vtex.common.js" />
+/// <reference path="vtex.jsevents.js" />
+/// <reference path="vtex.skuEvents.js" />
+
+$(document).ready(function() {
+    var skuServiceListener = new Vtex.JSEvents.Listener('skuServiceListener', SkuServiceButton_OnSkuDataReceived);
+    skuEventDispatcher.addListener(skuDataReceivedEventName, skuServiceListener);
+});
+
+function SkuServiceButton_OnSkuDataReceived(e) {
+
+    if (e.skuData.id > 0 && e.skuData.HasServiceAtProductPage && e.skuData.availability == true) {
+        var id = e.skuData.id;
+        $.ajax({
+            type: "GET",
+            url: '/servico/' + id,
+            dataType: 'html',
+            success: function (data) {
+                $('.skuService').html(data);
+                $('.skuService').show();
+            },
+            error: function () {
+                $('.skuService').html("Não foi possível carregar o serviço.");
+                
+            }
+        });
+    }
+    else {
+        $('.skuService').hide();
+    }
+}
+
+function OpenServiceGrid() {
+    $('.showHideService').attr('style', 'display:block');
+}
+
+function CloseServiceGrid() {
+    $('.showHideService').attr('style', 'display:none');
+}

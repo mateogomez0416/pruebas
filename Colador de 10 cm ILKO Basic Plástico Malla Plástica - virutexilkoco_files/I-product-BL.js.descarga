@@ -1,0 +1,97 @@
+
+/** Listados de funciones PDP desarrollo Brandlive
+ * Creado por Hassler Isaac
+ * 06/2022
+ */
+(function(){
+    var t=this;  
+    var SETTINGS_ILKO={
+        skuGiftCard: '',
+        infoProduct: {}
+    };
+
+    var init= function(){
+        $(document).ready(function(){
+            t.tabsContentCarrousel();
+        });
+    }
+    init();
+
+    /** Metodo set Informacion Producto */
+    t.getInfoProduct= function(id){
+        return $.ajax({
+            url: '/api/catalog_system/pub/products/search/?fq=productId:' + id,
+            type: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache"
+            },
+            timeout: 0,
+            dataType: 'json',
+            data: {}
+        }).done(function (result) { 
+            return result;
+        }).fail(function (result) {
+            return {error:result};
+        });
+    };
+
+    t.tabsContentCarrousel= function(){
+        try {
+            $(document).find('.tabLinkMas').on('click', function (e) {
+                $('.tabLinkMas').removeClass('active');
+                if ($(".tabLinkMas").hasClass("active")) {
+                  $(this).removeClass('active');
+                } else {
+                  $(this).addClass('active');
+                }
+                const dataClick = $(this).data('link');
+                switch (dataClick) {
+                  case 'productosSimilares':
+                    $(document).find('.productosComplementarios').hide();
+                    $(document).find('.productosSimilares').show();
+                    $(document).find('.productosSimilares .section-title').hide();
+                    
+                  break;
+                  case 'productosComplementarios':
+                    $(document).find('.productosSimilares').hide();
+                    $(document).find('.productosComplementarios').show();
+                    $(document).find('.productosComplementarios .section-title').hide();
+                  break;
+                }
+              });
+
+              if($(document).find('.tabLinkMas').length > 0){
+                $(document).find('.tabLinkMas')[0].click();
+              }
+              
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    /** Get Datos Masterdata */
+    t.getMasterdata= function({Acronym= '', _fields= "_all", _where= ''}){
+        return $.ajax({
+            url: '/api/dataentities/'+Acronym+'/search',
+            type: "GET",
+            headers: {
+                "Accept": "application/vnd.vtex.ds.v10+json",
+                "Content-Type": "application/json",
+                'Rest-Range': 'resources=0-300'
+            },
+            timeout: 0,
+            dataType: 'json',
+            data: {
+                _fields: _fields,
+                _where: _where
+            }
+        }).done(function (result) { 
+            return result;
+        }).fail(function (result) {
+            return {error:result};
+        });
+    }; 
+    
+
+})();

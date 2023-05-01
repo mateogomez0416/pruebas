@@ -1,0 +1,91 @@
+﻿/// <reference path="jquery-1.4.1-vsdoc.js" />
+/// <reference path="vtex.common.js" />
+/// <reference path="vtex.jsevents.js" />
+/// <reference path="vtex.skuEvents.js" />
+
+
+$(document).ready(function () {
+    var sellerOptionsListener = new Vtex.JSEvents.Listener('sellerOptionsListener', SellerOptions_OnSkuDataReceived);
+    skuEventDispatcher.addListener(skuDataReceivedEventName, sellerOptionsListener);
+    ViewAllSeller();
+});
+
+//function SellerOptions_OnSkuDataReceived(e) {
+//    if (e.skuData.id > 0) {
+//        var sellerhtml = "";
+//        for (var obj in e.skuData.SkuSellersInformation)
+//        {
+//            if (e.skuData.SkuSellersInformation[obj].Name && e.skuData.SkuSellersInformation[obj].IsDefaultSeller == false)
+//            {
+//                sellerhtml += "<p><ul>\n";
+//                sellerhtml += "<li><em class=\"Seller\">Seller: <strong>" + e.skuData.SkuSellersInformation[obj].Name + "</strong></em></li>\n";
+//                sellerhtml += "<li><em class=\"Price\">Price: <strong>R$ " + e.skuData.SkuSellersInformation[obj].Price + "</strong></em></li>\n";
+//                sellerhtml += "<li><em class=\"BuyButton\"><a href=\"" + GetCartAddLink(e.skuData.id, e.skuData.SkuSellersInformation[obj].SellerId, 1) + "\">Comprar</a></strong></em></li>\n";
+//                sellerhtml += "<li><em class=\"photo\">" + e.skuData.SkuSellersInformation[obj].LogoUrl + "</em></li>\n";
+//                sellerhtml += "</ul></p>\n";
+//            }
+//        }
+//        $('.sellerOptions').html(sellerhtml);
+//    }
+//}
+
+/// <reference path="jquery-1.4.1-vsdoc.js" />
+/// <reference path="vtex.common.js" />
+/// <reference path="vtex.jsevents.js" />
+/// <reference path="vtex.skuEvents.js" />
+
+//function SellerOptions_OnSkuDataReceived(e) {
+//    if (e.skuData.id > 0) {
+//        var archiveType = $("#sellerOptionSetting").val().split(',')[0];
+//        var maxSeller = $("#sellerOptionSetting").val().split(',')[1];
+//        var sellerhtml = "";
+
+//        var url = '/no-cache/seller/get/option/' + e.skuData.id + "/" + archiveType + "/" + maxSeller;
+//        jQuery.ajax(
+//        {
+//            type: 'POST',
+//            url: url,
+//            data: '',
+//            success: function (data) {
+//                sellerhtml += data;
+//            },
+//            error: function () {
+//            }
+//        });
+//    }
+//    $('.sellerOptions').html(sellerhtml);
+//}
+
+function SellerOptions_OnSkuDataReceived(e) {
+
+    var sellerOptionSetting = $("#sellerOptionSetting").val();
+
+    if (e.skuData.id > 0 && typeof sellerOptionSetting !== 'undefined' && sellerOptionSetting != null) {
+
+        var archiveType = sellerOptionSetting.split(',')[0];
+        var maxSeller = sellerOptionSetting.split(',')[1];
+
+        var url = '/no-cache/seller/get/option/' + e.skuData.id + "/" + archiveType + "/" + maxSeller;
+        jQuery.ajax(
+        {
+            type: 'POST',
+            url: url,
+            data: '',
+            success: function (data) {
+                $('.sellerOptions').hide().html(data).stop(true, true).fadeIn('slow');
+            },
+            error: function () {
+            }
+        });
+    }
+}
+
+function ViewAllSeller() {
+    jQuery('.action-view-all-sellers').click(function (e) {
+        e.preventDefault();
+
+        $('#seller > li').removeClass("last");
+        $('#seller > li').stop(true, true).slideDown('slow');
+        $('#seller > li').last().addClass("last");
+    });
+}
