@@ -1,0 +1,294 @@
+/*
+ Theme Name: Plasticos Persal
+ Theme URI: https://artefacto.co
+ Description: Plastico Pesal Theme
+ Version: 1.0
+ Author: ARTEFACTO
+ Author URI: https://www.artefacto.co
+ License URI: https://themeforest.net/licenses
+ Template: hongo
+ Text Domain: plasticospersal
+*/
+header .header-main-wrapper>div>section{
+	background-color:transparent;
+}
+header .nav>li>a{
+	padding: 25px 10px;
+}
+.woocommerce div.product .woocommerce-tabs .panel h2{
+	display:none;
+}
+.woocommerce div.product section{
+	border:none;
+}	
+.woocommerce div.product .related-products-content{
+	border-top: 1px solid #e8e8e8;
+}
+.single-product .product .summary .price del{
+	font-size:16px !important;
+	font-weight:500;
+	display:block;
+	line-height: 24px;
+	color:#ccc;
+}
+.woocommerce ul.products li.product .price del{
+	font-size: 14px;
+	color:#ccc;
+	font-weight:400;
+}
+.sku_wrapper{
+	padding:0px;
+}
+.hongo-woocommerce-top-sidebar .top-sidebar-scroll .top-sidebar-scroll-full .widget{
+	height:180px;
+}
+.hongo-mini-cart-slide-sidebar{
+	width: 400px !important;
+	right: -400px;
+	padding: 70px 0 30px 0 !important;
+}
+header .woocommerce.widget_shopping_cart .woocommerce-mini-cart__buttons{
+	padding: 10px 20px 60px;
+}
+.hongo-shop-dropdown-menu .shop-dropdown-toggle {
+  padding:15px 30px 15px 55px;
+	font-weight:600;
+}
+
+header .woocommerce.widget_shopping_cart .total strong, header .woocommerce.widget_shopping_cart .total{
+	font-size:14px;
+	font-weight:600;
+}
+.hongo-navigation-main-wrapper .hongo-shop-dropdown-menu.hongo-tab.panel{
+	width:220px;
+	margin-top:10px;
+}
+.hongo-shop-dropdown-menu li.menu-item.on .shop-mega-menu-wrapper{
+    left:218px;
+}
+.hongo-shop-dropdown-menu li.menu-item .shop-mega-menu-wrapper{
+	width:600px;
+}
+.icon-magnifier:before{
+	font-family: "Font Awesome 5 Free"; 
+	font-weight: 900; 
+	content: "\f002";
+	font-size:14px;
+}
+header .nav>li>a .menu-hover-line:after{
+	bottom: -5px;
+	height: 2px;
+}
+
+.header-common-wrapper:hover {
+	background-color:rgba(255, 255, 255, 0.6);
+	-webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+.header-common-wrapper {
+	background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent 100%);
+}
+header .nav>li>a>img.menu-link-icon, .hongo-shop-dropdown-menu .menu-item.menu-title img.menu-link-icon, .hongo-shop-dropdown-menu .menu-item img.menu-link-icon{
+	max-width:32px;
+	margin-right:15px;
+}
+.header-common-wrapper .hongo-shop-dropdown-menu .hongo-shop-dropdown-button-menu>ul>li>a{
+	line-height:33px;
+}
+.woocommerce .single-product-modern div.product .inner-wrap-modern{
+	padding:20px 12% 20px 12%;
+}
+.hongo-mini-cart-slide-sidebar-wrap .header-main-wrapper, .hongo-mini-cart-slide-sidebar-wrap .mini-header-main-wrapper{
+	z-index:0;
+}
+.hongo-mini-cart-slide-sidebar .mini-cart-slide-sidebar-heading{
+	padding: 20px 23px 20px 30px;
+	background-color:rgb(4,26,71);
+}	
+.hongo-mini-cart-slide-sidebar .mini-cart-slide-sidebar-heading span{	
+	font-size:15px;
+	font-weight:500;
+}
+.product-slider-style-2 .product-thumb-wrap .shop-title-category-wrap .hongo-product-title{
+	line-height:16px;
+}
+.product-slider-style-2{
+	padding-bottom:10px;
+}
+.product-slider-style-2 .product-thumb-wrap .shop-title-category-wrap{
+	bottom:6%;
+	top:inherit;
+	padding: 0 15px;
+}
+.product-slider-style-2 .product-bottom-wrap{
+	top: 0;
+    bottom: inherit;
+	background:linear-gradient(to bottom, white, transparent);
+}
+.woocommerce ul.products.hongo-shop-standard li.product .product-buttons-wrap a{
+	height:45px;
+}
+.woocommerce ul.products.hongo-shop-standard li.product .product-buttons-wrap a.button i{
+	line-height:45px;
+}
+.woocommerce ul.products.hongo-shop-standard li.product .product-buttons-wrap a span{
+	font-size:11px;
+}
+.woocommerce ul.products.hongo-shop-standard li.product .product-buttons-wrap a:hover span{
+	bottom:40px;
+}
+.hongo-shop-banner-1 .hongo-shop-banner-content .shop-banner-sub-title{
+	font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.small-screen{
+	height:220px;
+}
+.hongo-column-switch{
+	display:none;
+}
+.hongo-shop-banner-9 .hongo-shop-banner-content{
+	background:rgba(255, 255, 255, .6)
+}	
+.summary-main-title-right{
+	width:27%;
+}
+.summary-main-title-left{
+	width:73%;
+}
+.woocommerce div.product .hongo-variation-price-availability{
+	display:none;
+}	
+.hongo-woocommerce-top-sidebar .top-sidebar-scroll .top-sidebar-scroll-full .widget:last-child{
+	width: 280px;
+}
+.hongo-shop-banner-9.left-side-product .hongo-shop-banner-content{
+	text-align:right;
+}
+.hongo-shop-banner-9 .hongo-shop-banner-content{
+	width:230px;
+}
+.fila1 td{
+    background:#444;
+    color:#f8f8f8;
+    border:1px solid #111;
+	font-weight:bold;
+	padding:4px 6px !important;
+}
+.fila2 td{
+    background:transparent;
+    color:#333;
+    border:1px solid #666;
+	padding:4px 6px !important;
+	font-weight:normal;
+}
+
+.woocommerce table.shop_table td a{
+	font-weight:600;
+	color:#555;
+}
+
+.woocommerce td.product-name dl.variation{
+	font-size:12px;
+	margin-top: 10px;
+}
+
+.woocommerce ul.cart_list li dl, .woocommerce ul.product_list_widget li dl{
+	margin: -10px 0 10px 0;
+}
+header .woocommerce.widget_shopping_cart .hongo-mini-cart-slide-sidebar ul.cart_list li .quantity{
+	margin-top:-15px;
+}
+.woocommerce form .form-row label.inline{
+	display: inline-block;
+}
+
+.awdr_cart_strikeout_line{
+	display: inline-block;
+}
+header .woocommerce.widget_shopping_cart .hongo-mini-cart-slide-sidebar ul.cart_list li .quantity del{
+	color:#999;
+	font-size:12px;
+}
+.awdr-you-saved-text{
+	color: #fff !important;
+    font-size: 12px;
+    background: #54b783;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: -10px;
+}
+.woocommerce-checkout .woocommerce form.checkout{
+	margin-top: 40px;
+}
+.woocommerce-form-login-toggle .woocommerce-info, .woocommerce-form-coupon-toggle .woocommerce-info {
+	margin-bottom: 32px;
+}.woocommerce ul.hongo-product-list-common-wrap li.product .woocommerce-loop-product__title {
+	width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+@media (max-width: 991px){
+.hongo-navigation-main-wrapper .hongo-woocommerce-tabs-wrapper ul.navigation-tab li > a:hover, .hongo-navigation-main-wrapper .hongo-woocommerce-tabs-wrapper ul.navigation-tab li.active > a {
+	background-color: #dee4eb !important;
+    color: #23439f !important;
+    font-weight: bold;
+	}
+.hongo-navigation-main-wrapper .hongo-woocommerce-tabs-wrapper ul.navigation-tab li > a{
+	background-color: #ccc !important;
+	color: #333 !important;
+    font-weight: bold;
+}
+.woocommerce div.product div.images img{
+	-webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+}
+.woocommerce .single-product-modern div.product div.images, .woocommerce-page .single-product-modern div.product div.images {
+	overflow: hidden;
+}
+}
+@media (max-width: 767px){
+.woocommerce .single-product-modern div.product .inner-wrap-modern {
+	padding:50px 35px !important; 
+}
+.woocommerce .single-product-modern div.product .woocommerce-product-details__short-description p{
+	width:100%;
+}
+.hongo-main-title-wrap .small-screen {
+	height:160px !important;
+}	
+.woocommerce .sale-new-wrap span.new, .woocommerce ul.products li.product .onsale, .single-product .hongo-single-product-image-wrap .sale-new-wrap span.onsale, .single-product .hongo-single-product-image-wrap .sale-new-wrap span.new, .single-product .hongo-single-product-image-wrap .sale-new-wrap span.soldout{
+	margin: 2px !important;
+}
+.woocommerce ul.hongo-product-list-common-wrap li.product .price ins{
+	font-size: 12px;
+}
+.woocommerce ul.hongo-product-list-common-wrap li.product .price ins span{
+	font-size: 16px;
+}
+a.alt-font.button.hongo-quick-view{
+	display:none;
+}
+.woocommerce ul.hongo-product-list-common-wrap li.product .woocommerce-loop-product__title{
+	width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.page-title-style-5 .breadcrumb ul{
+	width: 80%;
+    text-align: center;
+    margin: 10px auto 0px ;
+}
+.hongo-mini-cart-slide-sidebar{
+	width:100% !important;
+	right: -100%;
+}
+}

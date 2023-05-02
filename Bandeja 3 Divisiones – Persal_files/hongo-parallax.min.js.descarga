@@ -1,0 +1,1 @@
+!function(a){"use strict";a(document).ready(function(){a(".parallax").each(function(){var t=a(this).attr("data-vc-parallax-image");a(this).parallax("50%",t)})})}(jQuery);
