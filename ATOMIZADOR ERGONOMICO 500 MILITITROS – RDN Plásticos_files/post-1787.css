@@ -1,0 +1,12 @@
+.elementor-kit-1787{--e-global-color-primary:#92B076;--e-global-color-secondary:#6D6E71;--e-global-color-text:#7A7A7A;--e-global-color-accent:#37B864;--e-global-color-6484ba0:#5253E3;--e-global-typography-primary-font-family:"Montserrat";--e-global-typography-primary-font-weight:600;--e-global-typography-secondary-font-family:"Montserrat";--e-global-typography-secondary-font-weight:400;--e-global-typography-text-font-family:"Montserrat";--e-global-typography-text-font-weight:400;--e-global-typography-accent-font-family:"Montserrat";--e-global-typography-accent-font-weight:500;}.elementor-kit-1787 button,.elementor-kit-1787 input[type="button"],.elementor-kit-1787 input[type="submit"],.elementor-kit-1787 .elementor-button{font-family:"Roboto Condensed", Sans-serif;text-transform:uppercase;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1140px;}.e-con{--container-max-width:1140px;}.elementor-widget:not(:last-child){margin-bottom:20px;}.elementor-element{--widgets-spacing:20px;}{}h1.entry-title{display:var(--page-title-display);}.elementor-kit-1787 e-page-transition{background-color:#FFBC7D;}.site-header{padding-right:0px;padding-left:0px;}@media(max-width:1024px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}/* Start custom CSS */.elementor-widget-woolentor-product-archive-addons .button, .single_add_to_cart_button,  .elementor-wc-products .button  {
+    color: #FFFFFF;
+    font-family: "Roboto Condensed", Sans-serif !important;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.woocommerce-notices-wrapper{
+    display:none;
+}
+.woocommerce a.added_to_cart {
+    display: none;
+}/* End custom CSS */
